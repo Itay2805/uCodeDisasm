@@ -537,7 +537,7 @@ U015e: 000802023008                rbx:= ZEROEXT_DSZ32(0x00000002)
 
 U0160: 2cda00e31144                tmp1:= LDTICKLE_DSZ8_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0161: 23af00031c41                tmp1:= unk_3af(r64dst, tmp1)
-           0903aa40                SEQW GOTO U03aa
+           0903aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U0162: 01420b000ec0     SYNCFULL-> UFLOWCTRL(URET1, tmp11)
 
@@ -547,9 +547,10 @@ U0166: 09023ed80200                MOVETOCREG_OR_DSZ64(0x00000003, 0x63e)
            02a7ae80                SEQW GOTO U27ae
 ------------------------------------------------------------------------------------
 
+adc_m32_r32_xlat:
 U0168: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0169: 333e00031c41                tmp1:= ADC(r64dst, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 
 pushad_continue:
@@ -563,7 +564,7 @@ U016e: 10c0c3824908                rsp:= ADD_DSZN(IMM_MACRO_c3, rsp)
 
 U0170: 2cda00e31144                tmp1:= LDTICKLE_DSZ8_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0171: 23a800031c41                tmp1:= unk_3a8(r64dst, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U0172: 017100020835                rax:= SELECTCC_DSZ64_CONDNZ(tmp5, rax)
 
@@ -573,9 +574,10 @@ U0176: 125600000000                unk_256(0x00000000)
            088000f2                SEQW UEND0
 ------------------------------------------------------------------------------------
 
+sbb_m32_r32_xlat:
 U0178: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0179: 333f00031c41                tmp1:= SBB(r64dst, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U017a: 0c4bc0270000                tmp0:= RDSEGFLD(UNK_SEG_09, UNK_FLD_0c)
 
@@ -587,7 +589,7 @@ U017e: 000cc5d00240                SAVEUIP(0x01, U34c5)
 
 U0180: 2cda00e31144                tmp1:= LDTICKLE_DSZ8_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0181: 23a900031c41                tmp1:= unk_3a9(r64dst, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U0182: 004307080200                WRITEURAM(0x00000000, 0x0007, 32)
 
@@ -599,7 +601,7 @@ U0186: 000848033009                tmp3:= ZEROEXT_DSZ32(0x00002048)
 
 U0188: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0189: 300f00831c48                tmp1:= unk_00f(IMM_MACRO_ALIAS_IMMEDIATE, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U018a: 26ed0a03aef9                tmp10:= unk_6ed(tmp9, tmp11)
 
@@ -609,9 +611,10 @@ U018e: 26ed00801e7b                r64dst:= unk_6ed(tmp11, tmp9)
            018000f2                SEQW UEND0
 ------------------------------------------------------------------------------------
 
+adc_m32_imm_xlat:
 U0190: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0191: 333e00831c48                tmp1:= ADC(IMM_MACRO_ALIAS_IMMEDIATE, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U0192: 00813f030c08                tmp0:= OR_DSZ16(0x0000003f, tmp0)
 
@@ -621,9 +624,10 @@ U0196: 20428c10023a     SYNCFULL-> MOVETOCREG_DSZ64(tmp10, 0x48c)
            09221e80                SEQW GOTO U221e
 ------------------------------------------------------------------------------------
 
+sbb_m32_imm_xlat:
 U0198: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U0199: 333f00831c48                tmp1:= SBB(IMM_MACRO_ALIAS_IMMEDIATE, tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U019a: 1008ff7f701f                tmp7:= ZEROEXT_DSZ32N(0xffffffffffffffff)
 
@@ -633,9 +637,10 @@ U019e: 000c3d5c0280                SAVEUIP(0x00, U573d)
            02edac80                SEQW GOTO U6dac
 ------------------------------------------------------------------------------------
 
+not_m32_xlat:
 U01a0: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U01a1: 1006ff7f1c5f                tmp1:= XOR_DSZN(0xffffffffffffffff, tmp1)
-           0303aa40                SEQW GOTO U03aa
+           0303aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U01a2: 006286135200    LFNCEWAIT-> tmp5:= MOVEFROMCREG_DSZ64(0x486)
 
@@ -645,9 +650,10 @@ U01a6: 01503e1402b7                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp7, U453e)
            01840480                SEQW GOTO U0404
 ------------------------------------------------------------------------------------
 
+sub_m32_xlat:
 U01a8: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U01a9: 300500031031                tmp1:= SUB_DSZ32(tmp1)
-           0183aa40                SEQW GOTO U03aa
+           0183aa40                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 U01aa: 0c7ba7000037                WRSEGFLD(tmp7, LDT, SEL+FLGS+LIM)
 
@@ -657,7 +663,7 @@ U01ae: 0c7b27000033    LFNCEMARK-> WRSEGFLD(tmp3, LDT, BASE)
            0517ec80                SEQW GOTO uend
 ------------------------------------------------------------------------------------
 
-mov_r64_m64_xlat:
+mov_r64_m16_xlat:
 U01b0: 089f00830144                tmp0:= LA2LIN_DSZ64(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT)
 U01b1: 008800001070                r64dst:= ZEROEXT_DSZ16(tmp0, r64dst)
            030000f1                SEQW UEND0
@@ -1428,6 +1434,8 @@ U03a6: 2d0fd843100a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d8, tmp1)
 
 U03a8: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U03a9: 300f00031c41                tmp1:= unk_00f(r64dst, tmp1)
+
+store_tmp1_m32_uend:
 U03aa: 3c1800e31144                STAD_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18, tmp1)
            018000f2                SEQW UEND0
 ------------------------------------------------------------------------------------
@@ -1441,7 +1449,7 @@ U03ae: 1c1000e34144                tmp4:= LDZX_DSZN_ASZ32_SC1(DS, r64base, r64id
 U03b0: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U03b1: 330801000c48                unk_308(0x00000001, tmp1)
 U03b2: 130801031c48                tmp1:= unk_308(0x00000001, tmp1)
-           0183aa80                SEQW GOTO U03aa
+           0183aa80                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 
 U03b4: 04b400038e80                tmm0:= FMOV(tmm2)
@@ -1452,7 +1460,7 @@ U03b6: 015d00000c80                UJMP(tmp2)
 U03b8: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U03b9: 330aff7c0c5f                unk_30a(0xffffffffffffffff, tmp1)
 U03ba: 130aff7f1c5f                tmp1:= unk_30a(0xffffffffffffffff, tmp1)
-           0183aa80                SEQW GOTO U03aa
+           0183aa80                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 
 U03bc: 000cd0600240                SAVEUIP(0x00, U38d0)
@@ -1549,7 +1557,7 @@ U03f6: 172f00021039                xmm1:= unk_72f(tmm1)
 U03f8: 3c1a00e31144                tmp1:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT, mode=0x18)
 U03f9: 301f00800231                unk_01f(tmp1, IMM_MACRO_ALIAS_IMMEDIATE)
 U03fa: 101f00831231                tmp1:= unk_01f(tmp1, IMM_MACRO_ALIAS_IMMEDIATE)
-           0183aa80                SEQW GOTO U03aa
+           0183aa80                SEQW GOTO store_tmp1_m32_uend
 ------------------------------------------------------------------------------------
 
 U03fc: 0c640060003a                unk_c64(tmp10)

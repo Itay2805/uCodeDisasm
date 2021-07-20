@@ -1,4 +1,5 @@
 0011: sha256_ret
+008e: lfence_wait_uend0
 02d8: sidt_xlat
 0320: vmresume_xlat
 0328: vmlaunch_xlat
@@ -57,11 +58,13 @@
 327c: apply_ucode_patch
 35a5: exit_probe_mode
 3a41: enter_probe_mode
+03aa: store_tmp1_m32_uend
 3dfa: check_cpl_uend3
 44f9: probe_mode_force_sgx_eenter_eresume
 4000: reset_flow
 4644: check_rsa_pub_key_hash
 465c: gen_rc4_key
+4e80: do_vmexit_lfence_wait
 4e81: do_vmexit
 4e82: do_vmexit_ovr_enter_rip
 50c4: calc_sha256_start
@@ -80,9 +83,13 @@
 75c6: enclu_impl
 
 
-01b0: mov_r64_m64_xlat
+01b0: mov_r64_m16_xlat
 
 0318: stosd_xlat
+0600: scasd_xlat
+0608: lodsd_xlat
+08a8: movsd_xlat
+0a98: cmpsd_xlat
 
 04a0: pop_rdx_xlat
 04a8: pop_rax_xlat
@@ -90,21 +97,23 @@
 05e8: mov_rax_cr3_xlat
 283c: validate_cr3_access
 
-0600: scasd_xlat
-0608: lodsd_xlat
-
 0870: swapgs_xlat
-08a8: movsd_xlat
 
 09e0: pushad_xlat
 016a: pushad_continue
 
-0a98: cmpsd_xlat
+0168: adc_m32_r32_xlat
+0178: sbb_m32_r32_xlat
 
-008e: lfence_wait_uend0
+0190: adc_m32_imm_xlat
+0198: sbb_m32_imm_xlat
+
+01a0: not_m32_xlat
+
+01a8: sub_m32_xlat
 
 4760: cpuid_impl
 4776: .not_dual_monitor
 4792: .leaf_0
 
-4e80: do_vmexit_lfence_wait
+
