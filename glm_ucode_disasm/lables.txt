@@ -78,3 +78,33 @@
 6e4c: non_ucode_fit_xlat_found
 735c: rsa_decrypt
 75c6: enclu_impl
+
+
+01b0: mov_r64_m64_xlat
+
+0318: stosd_xlat
+
+04a0: pop_rdx_xlat
+04a8: pop_rax_xlat
+
+05e8: mov_rax_cr3_xlat
+283c: validate_cr3_access
+
+0600: scasd_xlat
+0608: lodsd_xlat
+
+0870: swapgs_xlat
+08a8: movsd_xlat
+
+09e0: pushad_xlat
+016a: pushad_continue
+
+0a98: cmpsd_xlat
+
+008e: lfence_wait_uend0
+
+4760: cpuid_impl
+4776: .not_dual_monitor
+4792: .leaf_0
+
+4e80: do_vmexit_lfence_wait

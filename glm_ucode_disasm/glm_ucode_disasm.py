@@ -1115,10 +1115,10 @@ def msrom_disasm(arrays_dump_dir):
     g_uop_lables = load_id_names_str_data("lables.txt")
     g_uop_cregs = load_id_names_str_data("cregs.txt")
     g_uop_fscp_regs = load_id_names_str_data("fscp.txt")
-    ucode = load_ms_array_str_data(arrays_dump_dir + "\\ms_array0.txt")
-    msrom_seqwords = load_ms_array_str_data(arrays_dump_dir + "\\ms_array1.txt")
+    ucode = load_ms_array_str_data(os.path.join(arrays_dump_dir, "ms_array0.txt"))
+    msrom_seqwords = load_ms_array_str_data(os.path.join(arrays_dump_dir, "ms_array1.txt"))
     assert(len(ucode) == len(msrom_seqwords))
-    msram_seqwords = load_ms_array_str_data(arrays_dump_dir + "\\ms_array2.txt")
+    msram_seqwords = load_ms_array_str_data(os.path.join(arrays_dump_dir, "ms_array2.txt"))
     
     str_exec_flow_delim = "------------------------------------------------------------------------------------"
     str_disasm = ""
@@ -1157,7 +1157,7 @@ def msrom_disasm(arrays_dump_dir):
         if opcode in stop_exec_flow_opcodes:
             str_disasm += str_exec_flow_delim + "\n"
     
-    fo = open(arrays_dump_dir + "\\ucode_glm.txt", "w")
+    fo = open(os.path.join(arrays_dump_dir, "ucode_glm.txt"), "w")
     fo.write(str_disasm)
     fo.close()
 
