@@ -2847,6 +2847,7 @@ U0746: 04b49183e200                tmm6:= FMOV(0x00000091)
            01994880                SEQW GOTO U1948
 ------------------------------------------------------------------------------------
 
+fsgsbase_rdXXbase_r32_xlat:
 U0748: 0062c51f0200                tmp0:= MOVEFROMCREG_DSZ64(CORE_CR_CR4)
 U0749: 186b691c0330                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000010, generate_#UD)
 U074a: 0c4b20672000                tmp2:= RDSEGFLD(DS_KERNM, BASE)
@@ -3316,6 +3317,7 @@ U0876: 0c880063b038                STAD_DSZ16_ASZ32_SC1(tmp8, mode=0x18, tmp11)
            04808e72                SEQW UEND0
 ------------------------------------------------------------------------------------
 
+fsgsbase_wrXXbase_r32_xlat:
 U0878: 0062c51f0200                tmp0:= MOVEFROMCREG_DSZ64(CORE_CR_CR4)
 U0879: 186b691c0330                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000010, generate_#UD)
 U087a: 100100032002                tmp2:= OR_DSZN(r64src)
@@ -4335,14 +4337,16 @@ U0b66: 20635b030200                tmp0:= READURAM(0x005b, 64)
            01855c80                SEQW GOTO U055c
 ------------------------------------------------------------------------------------
 
+xsetbv_xlat:
 U0b68: 100a20000200                TESTUSTATE(SYS, UST_SMM)
-           018b6c00                ? SEQW GOTO U0b6c
+           018b6c00                ? SEQW GOTO .skip_cr4_check
 U0b69: 0062c51f0200                tmp0:= MOVEFROMCREG_DSZ64(CORE_CR_CR4)
 U0b6a: 186b699c0330                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000012, generate_#UD)
 
+.skip_cr4_check:
 U0b6c: 000816032008    LFNCEMARK-> tmp2:= ZEROEXT_DSZ32(0x00000016)
 U0b6d: 100a02800200                TESTUSTATE(SYS, !UST_USER_MODE)
-           04686e40                ? SEQW GOTO U686e
+           04686e40                ? SEQW GOTO xsetbv_impl
 U0b6e: 015d111c0240                UJMP(generate_#GP)
 ------------------------------------------------------------------------------------
 
@@ -4431,8 +4435,9 @@ U0bae: 013500014554                tmpv0:= CMOVCC_DSZ32_CONDNZ(tmpv0, tmpv1)
            018000ce                SEQW URET1
 ------------------------------------------------------------------------------------
 
+sysret_xlat:
 U0bb0: 000b03833208                tmp3:= UPDATEUSTATE(!0x0c)
-U0bb1: 000c88e00200    LFNCEMARK-> SAVEUIP(0x01, U1888)
+U0bb1: 000c88e00200    LFNCEMARK-> SAVEUIP(0x01, sysret_impl)
 U0bb2: 0062ff1f2200                tmp2:= MOVEFROMCREG_DSZ64(CORE_CR_IA32_EFER)
 
 U0bb4: 186b691c0232    LFNCEMARK-> BTUJNB_DIRECT_NOTTAKEN(tmp2, 0x00000000, generate_#UD)
@@ -8243,6 +8248,7 @@ U1886: 000c09980240                SAVEUIP(0x01, U2609)
            01ad5d80                SEQW GOTO U2d5d
 ------------------------------------------------------------------------------------
 
+sysret_impl:
 U1888: 004900031861                tmp1:= MOVE_DSZ64(rcx, rcx)
 U1889: 006530030230                tmp0:= SHR_DSZ64(tmp0, 0x00000030)
 U188a: 000a04035230                tmp5:= TESTUSTATE(tmp0, UCODE, 0x0004)
@@ -33556,6 +33562,8 @@ U686c: 10a400031cb1                tmp1:= SHL_DSZN(tmp1, tmp2)
 U686d: 000c6693e208                tmp14:= SAVEUIP(0x01, U0466)
            018000c9                SEQW URET0
 ------------------------------------------------------------------------------------
+
+xsetbv_impl:
 U686e: 000837030008                tmp0:= ZEROEXT_DSZ32(0x00000037)
 
 U6870: 000d32800000                SAVEUIP_REGOVR(0x01, U6871, 0x0032)

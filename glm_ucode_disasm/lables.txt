@@ -117,3 +117,12 @@
 4792: .leaf_0
 
 
+0b68: xsetbv_xlat
+0b6c: .skip_cr4_check
+686e: xsetbv_impl
+
+0bb0: sysret_xlat
+1888: sysret_impl
+
+0748: fsgsbase_rdXXbase_r32_xlat
+0878: fsgsbase_wrXXbase_r32_xlat
