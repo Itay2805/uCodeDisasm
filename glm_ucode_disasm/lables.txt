@@ -83,7 +83,7 @@
 75c6: enclu_impl
 
 
-01b0: mov_r64_m16_xlat
+01b0: lea_r16_m_xlat
 
 0318: stosd_xlat
 0600: scasd_xlat

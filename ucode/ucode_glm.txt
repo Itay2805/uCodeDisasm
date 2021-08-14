@@ -663,7 +663,7 @@ U01ae: 0c7b27000033    LFNCEMARK-> WRSEGFLD(tmp3, LDT, BASE)
            0517ec80                SEQW GOTO uend
 ------------------------------------------------------------------------------------
 
-mov_r64_m16_xlat:
+lea_r16_m_xlat:
 U01b0: 089f00830144                tmp0:= LA2LIN_DSZ64(DS, r64base, r64idx, IMM_MACRO_ALIAS_DISPLACEMENT)
 U01b1: 008800001070                r64dst:= ZEROEXT_DSZ16(tmp0, r64dst)
            030000f1                SEQW UEND0
