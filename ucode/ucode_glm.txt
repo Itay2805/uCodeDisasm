@@ -411,7 +411,7 @@ U010a: 00140f031231                tmp1:= BT_DSZ32(tmp1, 0x0000000f)
 
 U010c: 00b600031d71                tmp1:= CMOVCC_DSZ16_CONDB(tmp1, tmp5)
 U010d: 1929111c0d71   LFNCEWTMRK-> CMPUJNZ_DIRECT_NOTTAKEN(tmp1, tmp5, generate_#GP)
-U010e: 2d0fc4035008                PORTOUT_DSZ32_ASZ16_SC1(0x000000c4, tmp5)
+U010e: 2d0fc4035008                PORTOUT_DSZ32_ASZ16_SC1(0x00c4, tmp5)
            06b20480                SEQW GOTO U3204
 ------------------------------------------------------------------------------------
 
@@ -526,7 +526,7 @@ U0156: 000818033008                tmp3:= ZEROEXT_DSZ32(0x00000018)
 U0158: 00631103c200                tmp12:= READURAM(0x0011, 64)
            01947e00                SEQW GOTO U147e
 ------------------------------------------------------------------------------------
-U0159: 2d0bf01f000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000047f0)
+U0159: 2d0bf01f000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x47f0)
 U015a: 00650d030230                tmp0:= SHR_DSZ64(tmp0, 0x0000000d)
 
 U015c: 000408030c08                tmp0:= AND_DSZ32(0x00000008, tmp0)
@@ -778,7 +778,7 @@ U01f9: 000c74940200                SAVEUIP(0x01, U0574)
 ------------------------------------------------------------------------------------
 U01fa: 00240303e231                tmp14:= SHL_DSZ32(tmp1, 0x00000003)
 
-U01fc: 2d4f301f5f8a                PORTOUT_DSZ64_ASZ16_SC1(0x00004730, tmp14, tmp5)
+U01fc: 2d4f301f5f8a                PORTOUT_DSZ64_ASZ16_SC1(0x4730, tmp14, tmp5)
 U01fd: 0000050b1271                tmp1:= ADD_DSZ32(tmp1, 0x00002205)
 U01fe: 304200000c75                MOVETOCREG_DSZ64(tmp5, tmp1)
            01b39880                SEQW GOTO U3398
@@ -812,11 +812,11 @@ U0210: 0c1a00e33144                tmp3:= LDTICKLE_DSZ32_ASZ32_SC1(DS, r64base, 
 U0211: 004100030021                tmp0:= OR_DSZ64(rcx)
            01898a40                SEQW GOTO U098a
 ------------------------------------------------------------------------------------
-U0212: 2d0bbc1b100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000046bc)
+U0212: 2d0bbc1b100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x46bc)
 
 U0214: 00078a031c50                tmp1:= NOTAND_DSZ32(0x0003c000, tmp1)
 U0215: 000100031c75                tmp1:= OR_DSZ32(tmp5, tmp1)
-U0216: 2d0fbc1b100a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x000046bc, tmp1)
+U0216: 2d0fbc1b100a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x46bc, tmp1)
            0560d280                SEQW GOTO U60d2
 ------------------------------------------------------------------------------------
 
@@ -851,7 +851,7 @@ U0229: 008c74970221                tmp0:= SAVEUIP(rcx, 0x01, U0574)
 U022a: 000701031c48                tmp1:= NOTAND_DSZ32(0x00000001, tmp1)
 
 U022c: 00c100031c75                tmp1:= OR_DSZ8(tmp5, tmp1)
-U022d: 2d0f1833100a                PORTOUT_DSZ32_ASZ16_SC1(0x00004c18, tmp1)
+U022d: 2d0f1833100a                PORTOUT_DSZ32_ASZ16_SC1(0x4c18, tmp1)
 U022e: 00080143c008                tmp12:= ZEROEXT_DSZ32(0x00001001)
            01b23480                SEQW GOTO U3234
 ------------------------------------------------------------------------------------
@@ -1055,8 +1055,8 @@ U02b1: 24b49183e200                tmm6:= FMOV(0x00000091)
 ------------------------------------------------------------------------------------
 U02b2: 000802014008                tmpv0:= ZEROEXT_DSZ32(0x00000002)
 
-U02b4: 2d0f40014008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, tmpv0)
-U02b5: 2d0b40014008                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x00000040)
+U02b4: 2d0f40014008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, tmpv0)
+U02b5: 2d0b40014008                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x0040)
 U02b6: 086bb5080214     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmpv0, 0x00000000, U02b5)
            090000ca                SEQW URET0
 ------------------------------------------------------------------------------------
@@ -1069,8 +1069,8 @@ U02b9: 04b491839200                tmm1:= FMOV(0x00000091)
 ------------------------------------------------------------------------------------
 U02ba: 000802014008                tmpv0:= ZEROEXT_DSZ32(0x00000002)
 
-U02bc: 2d0f40014008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, tmpv0)
-U02bd: 2d0b40014008                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x00000040)
+U02bc: 2d0f40014008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, tmpv0)
+U02bd: 2d0b40014008                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x0040)
 U02be: 086bbd080214     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmpv0, 0x00000000, U02bd)
            090000ce                SEQW URET1
 ------------------------------------------------------------------------------------
@@ -1428,7 +1428,7 @@ U03a2: 00e100032c72                tmp2:= CONCAT_DSZ8(tmp2, tmp1)
 
 U03a4: 008800031c72                tmp1:= ZEROEXT_DSZ16(tmp2, tmp1)
 U03a5: 001510031231                tmp1:= BTS_DSZ32(tmp1, 0x00000010)
-U03a6: 2d0fd843100a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d8, tmp1)
+U03a6: 2d0fd843100a                PORTOUT_DSZ32_ASZ16_SC1(0x50d8, tmp1)
            01d6f880                SEQW GOTO U56f8
 ------------------------------------------------------------------------------------
 
@@ -1488,7 +1488,7 @@ U03ca: 1008000020b0                rax:= ZEROEXT_DSZ32N(tmp0, r64src)
            018000f2                SEQW UEND0
 ------------------------------------------------------------------------------------
 
-U03cc: 3d0b00035c88                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U03cc: 3d0b00035c88                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
 U03cd: 00059c071e08                tmp1:= SUB_DSZ32(0x0000019c, tmp8)
 U03ce: 01508d4c0231     SYNCFULL-> UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp1, U138d)
            092e2a80                SEQW GOTO U2e2a
@@ -1525,7 +1525,7 @@ U03e2: 00bc000020b0                rax:= unk_0bc(tmp0, r64src)
 ------------------------------------------------------------------------------------
 
 U03e4: 00480103a008                tmp10:= ZEROEXT_DSZ64(0x00000001)
-U03e5: 2d0fd403a008                PORTOUT_DSZ32_ASZ16_SC1(0x000000d4, tmp10)
+U03e5: 2d0fd403a008                PORTOUT_DSZ32_ASZ16_SC1(0x00d4, tmp10)
 U03e6: 000000000000                NOP
            01ba7680                SEQW GOTO U3a76
 ------------------------------------------------------------------------------------
@@ -2233,7 +2233,7 @@ U05b2: 000801730008                tmp0:= ZEROEXT_DSZ32(0x00001c01)
 
 U05b4: 00635c031200                tmp1:= READURAM(0x005c, 64)
 U05b5: 386a984c0331                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000011, U3398)
-U05b6: 3d0f687b5008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x00001e68, tmp5)
+U05b6: 3d0f687b5008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x1e68, tmp5)
            09339880                SEQW GOTO U3398
 ------------------------------------------------------------------------------------
 
@@ -2457,7 +2457,7 @@ U0642: 000000000000                NOP
 
 U0644: 0007ff3f2c88                tmp2:= NOTAND_DSZ32(0x00000fff, tmp2)
 U0645: 000004031c48                tmp1:= ADD_DSZ32(0x00000004, tmp1)
-U0646: 2d0f1027100a                PORTOUT_DSZ32_ASZ16_SC1(0x00004910, tmp1)
+U0646: 2d0f1027100a                PORTOUT_DSZ32_ASZ16_SC1(0x4910, tmp1)
            01aba280                SEQW GOTO U2ba2
 ------------------------------------------------------------------------------------
 
@@ -2732,7 +2732,7 @@ U06fc: 26b700001f39                xmm2:= unk_6b7(tmm1, tmm4)
            019ea6b0                SEQW UEND0
 ------------------------------------------------------------------------------------
 U06fd: 000000000000                NOP
-U06fe: 2d0f0027000a                PORTOUT_DSZ32_ASZ16_SC1(0x00004900, tmp0)
+U06fe: 2d0f0027000a                PORTOUT_DSZ32_ASZ16_SC1(PCU_CR_MICROCONTROLLER_CONFIGURATION, tmp0)
            019ea6b0                SEQW GOTO patch_runs_load_loop
 ------------------------------------------------------------------------------------
 
@@ -2969,7 +2969,7 @@ U0794: 203d00000000    LFNCEWAIT-> MOVEINSERTFLGS_DSZ32(0x00000000)
 ------------------------------------------------------------------------------------
 U0795: 000d108c0000                SAVEUIP_REGOVR(0x01, U0796, 0x0310)
 U0796: 000ca6f80200                SAVEUIP(0x01, patch_runs_load_loop)
-           025c62b0                SEQW GOTO U5c62
+           025c62b0                SEQW GOTO send_op_data_pcu_mailbox
 ------------------------------------------------------------------------------------
 
 U0798: 000d00000000                SAVEUIP_REGOVR(0x00, U0799, 0x0000)
@@ -3019,9 +3019,11 @@ U07b2: 1e2d00001030                STADPPHYSTICKLE_DSZN_ASZ64_SC1(tmp0, r64dst)
 U07b4: 300000000001                ADD_DSZ32(r64dst)
            0907b5b0                SEQW UEND0
 ------------------------------------------------------------------------------------
-U07b5: 2d0ba4015008                tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+
+send_op_pcu_mailbox:
+U07b5: 2d0ba4015008                tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U07b6: 286b66f103d5     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmpv1, 0x0000001f, U5c66)
-           0907b5b0                SEQW GOTO U07b5
+           0907b5b0                SEQW GOTO send_op_pcu_mailbox
 ------------------------------------------------------------------------------------
 
 U07b8: 00090003000c                tmp0:= MOVE_DSZ32(0x00008000)
@@ -4054,7 +4056,7 @@ U0a94: 2042f61c023a                MOVETOCREG_DSZ64(tmp10, CORE_CR_CR0)
            0197ea0e                SEQW GOTO U17ea
 ------------------------------------------------------------------------------------
 U0a95: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U0a96: 2d0f1447f00a                PORTOUT_DSZ32_ASZ16_SC1(0x00005114, tmp15)
+U0a96: 2d0f1447f00a                PORTOUT_DSZ32_ASZ16_SC1(0x5114, tmp15)
            0197ea0e                SEQW URET1
 ------------------------------------------------------------------------------------
 
@@ -4234,7 +4236,7 @@ U0b16: 0928f991023f                CMPUJZ_DIRECT_NOTTAKEN(tmp15, 0x00000002, pro
            01f5c680                SEQW GOTO enclu_impl
 ------------------------------------------------------------------------------------
 
-U0b18: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U0b18: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U0b19: 00080d030008                tmp0:= ZEROEXT_DSZ32(0x0000000d)
 U0b1a: 000802037008                tmp7:= ZEROEXT_DSZ32(0x00000002)
 
@@ -4426,7 +4428,7 @@ U0ba6: 0c4b20730000                tmp0:= RDSEGFLD(SEG_V0, BASE)
 U0ba8: 0c4ba0731000                tmp1:= RDSEGFLD(SEG_V0, SEL+FLGS+LIM)
            0188ea00                SEQW GOTO U08ea
 ------------------------------------------------------------------------------------
-U0ba9: 2d0b3c21400a                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x0000483c)
+U0ba9: 2d0b3c21400a                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x483c)
 U0baa: 000000014500                tmpv0:= ADD_DSZ32(0x00000000, tmpv0)
 
 U0bac: 106286095240                tmpv1:= MOVEFROMCREG_DSZ64(0x286, 32)
@@ -4662,7 +4664,7 @@ U0c52: 1062dc0b0240                tmp0:= MOVEFROMCREG_DSZ64(0x2dc, 32)
 
 U0c54: 086b52700230     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000001, U0c52)
 U0c55: 1902db880200                MOVETOCREG_OR_DSZ64(0x00000002, 0x2db)
-U0c56: 2d0b18030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00000018)
+U0c56: 2d0b18030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x0018)
 
 U0c58: 00bc00030030                tmp0:= unk_0bc(tmp0)
 U0c59: 002403031230                tmp1:= SHL_DSZ32(tmp0, 0x00000003)
@@ -4933,19 +4935,19 @@ U0d16: 004164031001         ROVR<- tmp1:= OR_DSZ64(r64dst)
 U0d18: 00080c03d008                tmp13:= ZEROEXT_DSZ32(0x0000000c)
            01ad6e00                SEQW GOTO U2d6e
 ------------------------------------------------------------------------------------
-U0d19: 2d0fc843100a                PORTOUT_DSZ32_ASZ16_SC1(0x000050c8, tmp1)
-U0d1a: 2d0bd043400a                tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x000050d0)
+U0d19: 2d0fc843100a                PORTOUT_DSZ32_ASZ16_SC1(0x50c8, tmp1)
+U0d1a: 2d0bd043400a                tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x50d0)
 
-U0d1c: 2d0bcc43600a    LFNCEWAIT-> tmp6:= PORTIN_DSZ32_ASZ16_SC1(0x000050cc)
+U0d1c: 2d0bcc43600a    LFNCEWAIT-> tmp6:= PORTIN_DSZ32_ASZ16_SC1(0x50cc)
 U0d1d: 00054a0b5d10                tmp5:= SUB_DSZ32(0xffffffff, tmp4)
 U0d1e: 017e00036d76                tmp6:= MOVEMERGEFLGS_DSZ64(tmp6, tmp5)
 
 U0d20: 013400036d36                tmp6:= CMOVCC_DSZ32_CONDZ(tmp6, tmp4)
-U0d21: 2d0fd043600a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d0, tmp6)
-U0d22: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U0d21: 2d0fd043600a                PORTOUT_DSZ32_ASZ16_SC1(0x50d0, tmp6)
+U0d22: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 
 U0d24: 000c3037d208                tmp13:= SAVEUIP(0x00, U0d30)
-U0d25: 2d0bd043800a                tmp8:= PORTIN_DSZ32_ASZ16_SC1(0x000050d0)
+U0d25: 2d0bd043800a                tmp8:= PORTIN_DSZ32_ASZ16_SC1(0x50d0)
 U0d26: 0ea51e036038                tmp6:= LDPPHYSTICKLE_DSZ16_ASZ64_SC1(tmp8, 0x0000001e)
 
 U0d28: 0e2500034038    LFNCEWAIT-> tmp4:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp8)
@@ -5011,7 +5013,7 @@ U0d58: 000cc5e80200                SAVEUIP(0x01, U1ac5)
 U0d59: 0e250c03b020                tmp11:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(rax, 0x0000000c)
 U0d5a: 086a5620003b                BTUJB_DIRECT_NOTTAKEN(tmp11, 0x00000000, U0856)
 
-U0d5c: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000050c0)
+U0d5c: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x50c0)
 U0d5d: 00054a0b9ed0                tmp9:= SUB_DSZ32(0xffffffff, tmp11)
 U0d5e: 0150be700239    LFNCEMARK-> UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp9, uret1)
 
@@ -5306,7 +5308,7 @@ U0e51: 0c4878600237                STAD_DSZ64_ASZ32_SC1(tmp7, 0x00000078, mode=0
 U0e52: 015d39500200                UJMP(U1439)
 ------------------------------------------------------------------------------------
 
-U0e54: 2d0fb4031008    LFNCEWAIT-> PORTOUT_DSZ32_ASZ16_SC1(0x000000b4, tmp1)
+U0e54: 2d0fb4031008    LFNCEWAIT-> PORTOUT_DSZ32_ASZ16_SC1(0x00b4, tmp1)
 U0e55: 000d00800000                SAVEUIP_REGOVR(0x01, U0e56, 0x0000)
            022b1540                SEQW GOTO lbsync_full
 U0e56: 00a10103000c                tmp0:= CONCAT_DSZ16(0x00008001)
@@ -5642,24 +5644,24 @@ U0f78: 006520031231                tmp1:= SHR_DSZ64(tmp1, 0x00000020)
 U0f79: 00c800031031                tmp1:= ZEROEXT_DSZ8(tmp1)
 U0f7a: 000501031c48                tmp1:= SUB_DSZ32(0x00000001, tmp1)
 
-U0f7c: 2d0f18031008                PORTOUT_DSZ32_ASZ16_SC1(0x00000018, tmp1)
-U0f7d: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x000000c0)
+U0f7c: 2d0f18031008                PORTOUT_DSZ32_ASZ16_SC1(0x0018, tmp1)
+U0f7d: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00c0)
 U0f7e: 001503031231                tmp1:= BTS_DSZ32(tmp1, 0x00000003)
 
-U0f80: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x000000c0, tmp1)
-U0f81: 2d0b08032008                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x00000008)
+U0f80: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x00c0, tmp1)
+U0f81: 2d0b08032008                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x0008)
 U0f82: 006335031200                tmp1:= READURAM(0x0035, 64)
 
 U0f84: 005430031231                tmp1:= BT_DSZ64(tmp1, 0x00000030)
 U0f85: 003310031231                tmp1:= SELECTCC_DSZ32_CONDNB(tmp1, 0x00000010)
 U0f86: 000100032cb1                tmp2:= OR_DSZ32(tmp1, tmp2)
 
-U0f88: 2d0f08032008                PORTOUT_DSZ32_ASZ16_SC1(0x00000008, tmp2)
+U0f88: 2d0f08032008                PORTOUT_DSZ32_ASZ16_SC1(0x0008, tmp2)
 U0f89: 006377031200                tmp1:= READURAM(0x0077, 64)
 U0f8a: 00652b031231                tmp1:= SHR_DSZ64(tmp1, 0x0000002b)
 
 U0f8c: 00241f031231                tmp1:= SHL_DSZ32(tmp1, 0x0000001f)
-U0f8d: 2d0f3c031008                PORTOUT_DSZ32_ASZ16_SC1(0x0000003c, tmp1)
+U0f8d: 2d0f3c031008                PORTOUT_DSZ32_ASZ16_SC1(0x003c, tmp1)
 U0f8e: 000800030000                tmp0:= ZEROEXT_DSZ32(0x00000000)
            01a1a196                SEQW SAVEUIP1 U0f90
                                    SEQW GOTO U21a1
@@ -5778,13 +5780,13 @@ U0ff4: 004263140237                MOVETOCREG_DSZ64(tmp7, 0x563)
 U0ff5: 0e7dc0038008                STADSTGBUF_DSZ64_ASZ16_SC1(0x000000c0, tmp8)
 U0ff6: 0e7de0037008                STADSTGBUF_DSZ64_ASZ16_SC1(0x000000e0, tmp7)
 
-U0ff8: 2d4f10038008                PORTOUT_DSZ64_ASZ16_SC1(0x00000010, tmp8)
+U0ff8: 2d4f10038008                PORTOUT_DSZ64_ASZ16_SC1(0x0010, tmp8)
 U0ff9: 000804030008                tmp0:= ZEROEXT_DSZ32(0x00000004)
            01e0aa51                SEQW SAVEUIP0 U0ffa
                                    SEQW GOTO U60aa
 U0ffa: 006263170200                tmp0:= MOVEFROMCREG_DSZ64(0x563)
 
-U0ffc: 2d4f10030008                PORTOUT_DSZ64_ASZ16_SC1(0x00000010, tmp0)
+U0ffc: 2d4f10030008                PORTOUT_DSZ64_ASZ16_SC1(0x0010, tmp0)
 U0ffd: 000805030008                tmp0:= ZEROEXT_DSZ32(0x00000005)
 U0ffe: 000c2a640200                SAVEUIP(0x00, U192a)
            01e0aa80                SEQW GOTO U60aa
@@ -6254,7 +6256,7 @@ U119c: 00638e03d200                tmp13:= READURAM(0x008e, 64)
 U119d: 104000438e08                tmp8:= ADD_DSZN(0x00001000, tmp8)
 U119e: 00080003503d                tmp5:= ZEROEXT_DSZ32(tmp13)
 
-U11a0: 2d4b481b600a                tmp6:= PORTIN_DSZ64_ASZ16_SC1(0x00004648)
+U11a0: 2d4b481b600a                tmp6:= PORTIN_DSZ64_ASZ16_SC1(0x4648)
 U11a1: 386afd200336     SYNCFULL-> BTUJB_DIRECT_NOTTAKEN(tmp6, 0x00000010, U38fd)
 U11a2: 000c218fe248                tmp14:= SAVEUIP(0x01, U2321)
 
@@ -6433,16 +6435,16 @@ U1242: 005344480235                UJMPCC_DIRECT_NOTTAKEN_CONDNB(tmp5, U1244)
 
 U1244: 000d05800000                SAVEUIP_REGOVR(0x01, U1245, 0x0005)
            0182ba00                SEQW GOTO U02ba
-U1245: 2d0b0413500c                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00008404)
+U1245: 2d0b0413500c                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x8404)
 U1246: 000800000000                NOP
 
 U1248: 286b498803f5                BTUJNB_DIRECT_NOTTAKEN(tmp5, 0x0000001e, U1249)
            01924c00                SEQW GOTO U124c
 ------------------------------------------------------------------------------------
 U1249: 00151e035235                tmp5:= BTS_DSZ32(tmp5, 0x0000001e)
-U124a: 2d0f0413500c                PORTOUT_DSZ32_ASZ16_SC1(0x00008404, tmp5)
+U124a: 2d0f0413500c                PORTOUT_DSZ32_ASZ16_SC1(0x8404, tmp5)
 
-U124c: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U124c: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 U124d: 100a40800200                TESTUSTATE(SYS, !UST_VMX_DUAL_MON)
            01925240                ? SEQW GOTO U1252
 U124e: 006311035200                tmp5:= READURAM(0x0011, 64)
@@ -6812,7 +6814,7 @@ U138c: 386aea340370    LFNCEMARK-> BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000014, U3dea
            043dec00                SEQW GOTO U3dec
 ------------------------------------------------------------------------------------
 U138d: 000419071d50                tmp1:= AND_DSZ32(0x007f0000, tmp5)
-U138e: 2d0b2c23200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x0000482c)
+U138e: 2d0b2c23200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x482c)
 
 U1390: 000419072c90                tmp2:= AND_DSZ32(0x007f0000, tmp2)
 U1391: 000500032cb1                tmp2:= SUB_DSZ32(tmp1, tmp2)
@@ -6995,7 +6997,7 @@ U1434: 00635c03f200                tmp15:= READURAM(0x005c, 64)
 U1435: 00562b03f23f                tmp15:= BTR_DSZ64(tmp15, 0x0000002b)
 U1436: 20435c00023f                WRITEURAM(tmp15, 0x005c, 64)
 
-U1438: 2d0fe443e00a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x000050e4, tmp14)
+U1438: 2d0fe443e00a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x50e4, tmp14)
            043f358c                SEQW URET1
 ------------------------------------------------------------------------------------
 U1439: 000c40d00200                SAVEUIP(0x01, U1440)
@@ -7940,7 +7942,7 @@ U179a: 1062c40bb240                tmp11:= MOVEFROMCREG_DSZ64(ML3_CR_PIC_GLOBAL_
 U179c: 00635c03a200                tmp10:= READURAM(0x005c, 64)
 U179d: 000a04800200                TESTUSTATE(UCODE, !0x0004)
            01efc040                ? SEQW GOTO U6fc0
-U179e: 2d0bd443900a                tmp9:= PORTIN_DSZ32_ASZ16_SC1(0x000050d4)
+U179e: 2d0bd443900a                tmp9:= PORTIN_DSZ32_ASZ16_SC1(0x50d4)
 
 U17a0: 286aa19c0239                BTUJB_DIRECT_NOTTAKEN(tmp9, 0x00000002, U17a1)
            0197a900                SEQW GOTO U17a9
@@ -8286,11 +8288,11 @@ U18a1: 00040203ef88                tmp14:= AND_DSZ32(0x00000002, tmp14)
 U18a2: 00553f03f200                tmp15:= BTS_DSZ64(0x00000000, 0x0000003f)
 
 U18a4: 01700003effe                tmp14:= SELECTCC_DSZ64_CONDZ(tmp14, tmp15)
-U18a5: 2d4b204bf00a                tmp15:= PORTIN_DSZ64_ASZ16_SC1(0x00005220)
+U18a5: 2d4b204bf00a                tmp15:= PORTIN_DSZ64_ASZ16_SC1(0x5220)
 U18a6: 00563f03f23f                tmp15:= BTR_DSZ64(tmp15, 0x0000003f)
 
 U18a8: 00410003fffe                tmp15:= OR_DSZ64(tmp14, tmp15)
-U18a9: 2d4f204bf00a    LFNCEMARK-> PORTOUT_DSZ64_ASZ16_SC1(0x00005220, tmp15)
+U18a9: 2d4f204bf00a    LFNCEMARK-> PORTOUT_DSZ64_ASZ16_SC1(0x5220, tmp15)
            04f6398d                SEQW URET1
 ------------------------------------------------------------------------------------
 U18aa: 200a00400200                TESTUSTATE(VMX, 0x1000)
@@ -8564,16 +8566,16 @@ U1980: 186a39140270                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000004, U2539
 U1981: 006530030230                tmp0:= SHR_DSZ64(tmp0, 0x00000030)
            07253c40                SEQW GOTO U253c
 ------------------------------------------------------------------------------------
-U1982: 2d0ba403e008   LFNCEWTMRK-> tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U1982: 2d0ba403e008   LFNCEWTMRK-> tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U1984: 286b85e403fe                BTUJNB_DIRECT_NOTTAKEN(tmp14, 0x0000001f, U1985)
            01998200                SEQW GOTO U1982
 ------------------------------------------------------------------------------------
 U1985: 00151f034234                tmp4:= BTS_DSZ32(tmp4, 0x0000001f)
-U1986: 2d0fa003a008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp10)
+U1986: 2d0fa003a008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp10)
 
-U1988: 2d0fa4034008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp4)
-U1989: 2d0ba403e008   LFNCEWTMRK-> tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U1988: 2d0fa4034008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp4)
+U1989: 2d0ba403e008   LFNCEWTMRK-> tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U198a: 286b8ce403fe                BTUJNB_DIRECT_NOTTAKEN(tmp14, 0x0000001f, U198c)
            06998980                SEQW GOTO U1989
 ------------------------------------------------------------------------------------
@@ -8689,11 +8691,11 @@ U19e4: 002100036df6                tmp6:= CONCAT_DSZ32(tmp6, tmp7)
 U19e5: 0e7d00036031                STADSTGBUF_DSZ64_ASZ16_SC1(tmp1, tmp6)
            019ea640                SEQW GOTO patch_runs_load_loop
 ------------------------------------------------------------------------------------
-U19e6: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000050c0)
+U19e6: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x50c0)
 
 U19e8: 00054a0bbed0                tmp11:= SUB_DSZ32(0xffffffff, tmp11)
 U19e9: 01503034023b    LFNCEMARK-> UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp11, U0d30)
-U19ea: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000050c0)
+U19ea: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x50c0)
 
 U19ec: 00640803b23b    LFNCEWAIT-> tmp11:= SHL_DSZ64(tmp11, 0x00000008)
 U19ed: 0e2d00035d3b                STADPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp11, tmp4, tmp5)
@@ -8869,7 +8871,7 @@ U1a70: 100a20000200                TESTUSTATE(SYS, UST_SMM)
 U1a71: 006377030200                tmp0:= READURAM(0x0077, 64)
 U1a72: 386bdea00630                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000022, U38de)
 
-U1a74: 2d0bdc43000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000050dc)
+U1a74: 2d0bdc43000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x50dc)
 U1a75: 386ade200230                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000000, U38de)
 U1a76: 100a00840200                TESTUSTATE(SYS, !UST_VMX_OP_DIS)
            01b8de80                ? SEQW GOTO U38de
@@ -9460,7 +9462,7 @@ U1c5a: 00437308023b                WRITEURAM(tmp11, 0x0073, 32)
 
 U1c5c: 000800000000                NOP
 U1c5d: 000800000000                NOP
-U1c5e: 2d0b381b600a                tmp6:= PORTIN_DSZ32_ASZ16_SC1(0x00004638)
+U1c5e: 2d0b381b600a                tmp6:= PORTIN_DSZ32_ASZ16_SC1(0x4638)
 
 U1c60: 002516037236                tmp7:= SHR_DSZ32(tmp6, 0x00000016)
 U1c61: 002510039236                tmp9:= SHR_DSZ32(tmp6, 0x00000010)
@@ -9543,17 +9545,17 @@ U1ca4: 09284c300335                CMPUJZ_DIRECT_NOTTAKEN(tmp5, 0x00000010, U0c4
 U1ca5: 1929111c0275                CMPUJNZ_DIRECT_NOTTAKEN(tmp5, 0x00000004, generate_#GP)
            0182ba55                SEQW SAVEUIP1 U1ca6
                                    SEQW GOTO U02ba
-U1ca6: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U1ca6: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 
 U1ca8: 286af8190331                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000010, U56f8)
 U1ca9: 0008ff032008                tmp2:= ZEROEXT_DSZ32(0x000000ff)
 U1caa: 006320033200                tmp3:= READURAM(0x0020, 64)
 
 U1cac: 006530033233                tmp3:= SHR_DSZ64(tmp3, 0x00000030)
-U1cad: 2d4bb043500a                tmp5:= PORTIN_DSZ64_ASZ16_SC1(0x000050b0)
+U1cad: 2d4bb043500a                tmp5:= PORTIN_DSZ64_ASZ16_SC1(0x50b0)
            019cb155                SEQW SAVEUIP1 U1cae
                                    SEQW GOTO U1cb1
-U1cae: 2d4bb843500a                tmp5:= PORTIN_DSZ64_ASZ16_SC1(0x000050b8)
+U1cae: 2d4bb843500a                tmp5:= PORTIN_DSZ64_ASZ16_SC1(0x50b8)
 
 U1cb0: 000ca28c0200                SAVEUIP(0x01, U03a2)
 U1cb1: 000e07000200                WRMSLOOPCTRFBR(0x00000007)
@@ -9884,11 +9886,11 @@ U1dbc: 00016103ef90                tmp14:= OR_DSZ32(0x00016809, tmp14)
 U1dbd: 00420000023e   LFNCEWTMRK-> MOVETOCREG_DSZ64(tmp14, 0x000)
            06817a40                SEQW GOTO U017a
 ------------------------------------------------------------------------------------
-U1dbe: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000050c0)
+U1dbe: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x50c0)
 
 U1dc0: 00054a0bbed0                tmp11:= SUB_DSZ32(0xffffffff, tmp11)
 U1dc1: 0150a20c02fb    LFNCEMARK-> UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp11, U63a2)
-U1dc2: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000050c0)
+U1dc2: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x50c0)
 
 U1dc4: 00640803b23b    LFNCEWAIT-> tmp11:= SHL_DSZ64(tmp11, 0x00000008)
 U1dc5: 0e2500035d3b                tmp5:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp11, tmp4)
@@ -10079,17 +10081,17 @@ U1e6c: 000c4437d2c8                tmp13:= SAVEUIP(0x00, U6d44)
 U1e6d: 000c6af3e248                tmp14:= SAVEUIP(0x01, U3c6a)
            01e31440                SEQW GOTO U6314
 ------------------------------------------------------------------------------------
-U1e6e: 2d8b801b300a                tmp3:= PORTIN_DSZ16_ASZ16_SC1(0x00004680)
+U1e6e: 2d8b801b300a                tmp3:= PORTIN_DSZ16_ASZ16_SC1(0x4680)
 
 U1e70: 0e7d405f300d                STADSTGBUF_DSZ64_ASZ16_SC1(0x0000b740, tmp3)
-U1e71: 2d0fd440000a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d4, 0x00000000)
+U1e71: 2d0fd440000a                PORTOUT_DSZ32_ASZ16_SC1(0x50d4, 0x00000000)
 U1e72: 0008f07f200f                tmp2:= ZEROEXT_DSZ32(0x0000fff0)
 
 U1e74: 00628e1f1200                tmp1:= MOVEFROMCREG_DSZ64(0x78e)
 U1e75: 000000031c72                tmp1:= ADD_DSZ32(tmp2, tmp1)
 U1e76: 204267000231                MOVETOCREG_DSZ64(tmp1, CORE_CR_CUR_RIP)
 
-U1e78: 2d0b0023300a                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x00004800)
+U1e78: 2d0b0023300a                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x4800)
 U1e79: 286a7a3803b3                BTUJB_DIRECT_NOTTAKEN(tmp3, 0x00000018, U1e7a)
            01c3ae40                SEQW GOTO U43ae
 ------------------------------------------------------------------------------------
@@ -10138,14 +10140,14 @@ U1e9a: 000d01800000                SAVEUIP_REGOVR(0x01, U1e9c, 0x0001)
 
 U1e9c: 000d00800000                SAVEUIP_REGOVR(0x01, U1e9d, 0x0000)
            0182ba00                SEQW GOTO U02ba
-U1e9d: 2d0bd843000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U1e9d: 2d0bd843000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U1e9e: 001512030230                tmp0:= BTS_DSZ32(tmp0, 0x00000012)
 
-U1ea0: 2d0fd843000a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d8, tmp0)
-U1ea1: 2d0bd843000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U1ea0: 2d0fd843000a                PORTOUT_DSZ32_ASZ16_SC1(0x50d8, tmp0)
+U1ea1: 2d0bd843000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U1ea2: 286ba1b80330     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000012, U1ea1)
 
-U1ea4: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U1ea4: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 U1ea5: 00080a030008                tmp0:= ZEROEXT_DSZ32(0x0000000a)
            0960aa51                SEQW SAVEUIP0 U1ea6
                                    SEQW GOTO U60aa
@@ -10753,7 +10755,7 @@ U208c: 004400239e48                tmp9:= AND_DSZ64(0x00000800, tmp9)
            01cb220e                SEQW GOTO U4b22
 ------------------------------------------------------------------------------------
 U208d: 00080103f008                tmp15:= ZEROEXT_DSZ32(0x00000001)
-U208e: 2d0f1447f00a                PORTOUT_DSZ32_ASZ16_SC1(0x00005114, tmp15)
+U208e: 2d0f1447f00a                PORTOUT_DSZ32_ASZ16_SC1(0x5114, tmp15)
            01cb220e                SEQW URET1
 ------------------------------------------------------------------------------------
 
@@ -10824,7 +10826,7 @@ U20bc: 000c79e00200                SAVEUIP(0x01, U1879)
            0898d000                SEQW GOTO U18d0
 ------------------------------------------------------------------------------------
 U20bd: 1062850b1240     SYNCFULL-> tmp1:= MOVEFROMCREG_DSZ64(CTAP_CR_DFX_CTL_STS, 32)
-U20be: 2d0b0413200c                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x00008404)
+U20be: 2d0b0413200c                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x8404)
 
 U20c0: 186bc68002b1                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x0000000a, U20c6)
 U20c1: 186ac2000232                BTUJB_DIRECT_NOTTAKEN(tmp2, 0x00000000, U20c2)
@@ -10832,7 +10834,7 @@ U20c1: 186ac2000232                BTUJB_DIRECT_NOTTAKEN(tmp2, 0x00000000, U20c2
 ------------------------------------------------------------------------------------
 U20c2: 186bc64002b1                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000009, U20c6)
 
-U20c4: 2d0b005f100c                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00009700)
+U20c4: 2d0b005f100c                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x9700)
 U20c5: 186bc6400231                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000001, U20c6)
            01dd6540                SEQW GOTO U5d65
 ------------------------------------------------------------------------------------
@@ -10970,7 +10972,7 @@ U2129: 186adef5027c    LFNCEMARK-> BTUJB_DIRECT_NOTTAKEN(tmp12, 0x00000007, U6dd
 U212a: 00631c030200                tmp0:= READURAM(0x001c, 64)
 
 U212c: 1042f1080270    LFNCEWAIT-> MOVETOCREG_DSZ64(tmp0, 0x2f1, 32)
-U212d: 2d0fb4000008                PORTOUT_DSZ32_ASZ16_SC1(0x000000b4, 0x00000000)
+U212d: 2d0fb4000008                PORTOUT_DSZ32_ASZ16_SC1(0x00b4, 0x00000000)
 U212e: 1062eb0b0240                tmp0:= MOVEFROMCREG_DSZ64(0x2eb, 32)
 
 U2130: 186b2e040230     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000000, U212e)
@@ -11036,14 +11038,14 @@ U215a: 0d9b0103a031    LFNCEMARK-> tmp10:= unk_d9b(tmp1)
 U215c: 00240803a23a                tmp10:= SHL_DSZ32(tmp10, 0x00000008)
            01a14e00                SEQW GOTO U214e
 ------------------------------------------------------------------------------------
-U215d: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000050c0)
+U215d: 2d0bc043b00a                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x50c0)
 U215e: 00640803b23b                tmp11:= SHL_DSZ64(tmp11, 0x00000008)
 
 U2160: 286b6cb102b6     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp6, 0x0000000a, U5c6c)
 U2161: 0e2d00035d3b                STADPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp11, tmp4, tmp5)
            0803e689                SEQW URET0
 ------------------------------------------------------------------------------------
-U2162: 2d0fd4000008                PORTOUT_DSZ32_ASZ16_SC1(0x000000d4, 0x00000000)
+U2162: 2d0fd4000008                PORTOUT_DSZ32_ASZ16_SC1(0x00d4, 0x00000000)
            0803e689                SEQW GOTO U03e6
 ------------------------------------------------------------------------------------
 
@@ -11072,7 +11074,7 @@ U216e: 000000000000                NOP
 ------------------------------------------------------------------------------------
 
 U2170: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U2171: 2d0f1047f00a                PORTOUT_DSZ32_ASZ16_SC1(0x00005110, tmp15)
+U2171: 2d0f1047f00a                PORTOUT_DSZ32_ASZ16_SC1(0x5110, tmp15)
            0183e48d                SEQW URET1
 ------------------------------------------------------------------------------------
 U2172: 000000000000                NOP
@@ -11080,7 +11082,7 @@ U2172: 000000000000                NOP
 ------------------------------------------------------------------------------------
 
 U2174: 00080103f008                tmp15:= ZEROEXT_DSZ32(0x00000001)
-U2175: 2d0f1047f00a                PORTOUT_DSZ32_ASZ16_SC1(0x00005110, tmp15)
+U2175: 2d0f1047f00a                PORTOUT_DSZ32_ASZ16_SC1(0x5110, tmp15)
            0183e48d                SEQW URET1
 ------------------------------------------------------------------------------------
 U2176: 000000000000                NOP
@@ -11091,7 +11093,7 @@ U2178: 0062fe1d4200    LFNCEWAIT-> tmpv0:= MOVEFROMCREG_DSZ64(CORE_CR_EFLAGS)
 U2179: 238000014500                tmpv0:= READAFLAGS(tmpv0)
            02662a8d                SEQW URET1
 ------------------------------------------------------------------------------------
-U217a: 2d0fd4000008                PORTOUT_DSZ32_ASZ16_SC1(0x000000d4, 0x00000000)
+U217a: 2d0fd4000008                PORTOUT_DSZ32_ASZ16_SC1(0x00d4, 0x00000000)
            02662a8d                SEQW GOTO U662a
 ------------------------------------------------------------------------------------
 
@@ -11144,7 +11146,7 @@ U219e: 000478021c88                rcx:= AND_DSZ32(0x00000078, tmp2)
 U21a0: 000801037008                tmp7:= ZEROEXT_DSZ32(0x00000001)
            01a1810e                SEQW GOTO U2181
 ------------------------------------------------------------------------------------
-U21a1: 2d0fc8030008                PORTOUT_DSZ32_ASZ16_SC1(0x000000c8, tmp0)
+U21a1: 2d0fc8030008                PORTOUT_DSZ32_ASZ16_SC1(0x00c8, tmp0)
 U21a2: 000000000000                NOP
            01a1810e                SEQW URET1
 ------------------------------------------------------------------------------------
@@ -11171,8 +11173,8 @@ U21b2: 0001000228b0                rdx:= OR_DSZ32(tmp0, rdx)
            01828280                SEQW GOTO U0282
 ------------------------------------------------------------------------------------
 
-U21b4: 2d4b4023000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x00004840)
-U21b5: 2d4b4823100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x00004848)
+U21b4: 2d4b4023000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x4840)
+U21b5: 2d4b4823100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x4848)
 U21b6: 000800020030                rax:= ZEROEXT_DSZ32(tmp0)
            01a1c880                SEQW GOTO U21c8
 ------------------------------------------------------------------------------------
@@ -11183,8 +11185,8 @@ U21b9: 3902db080240    LFNCEMARK-> MOVETOCREG_OR_DSZ64(0x00000004, 0x2db)
 ------------------------------------------------------------------------------------
 U21ba: 000000000000                NOP
 
-U21bc: 2d4b5023000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x00004850)
-U21bd: 2d4b5823100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x00004858)
+U21bc: 2d4b5023000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x4850)
+U21bd: 2d4b5823100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x4858)
 U21be: 000800020030                rax:= ZEROEXT_DSZ32(tmp0)
            01a1c880                SEQW GOTO U21c8
 ------------------------------------------------------------------------------------
@@ -11195,8 +11197,8 @@ U21c1: 0008d12fe009                tmp14:= ZEROEXT_DSZ32(0x00002bd1)
 ------------------------------------------------------------------------------------
 U21c2: 000000000000                NOP
 
-U21c4: 2d4b6023000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x00004860)
-U21c5: 2d4b6823100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x00004868)
+U21c4: 2d4b6023000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x4860)
+U21c5: 2d4b6823100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x4868)
 U21c6: 000800020030                rax:= ZEROEXT_DSZ32(tmp0)
 
 U21c8: 006520023230                rbx:= SHR_DSZ64(tmp0, 0x00000020)
@@ -11509,11 +11511,11 @@ U229e: 004008034d08                tmp4:= ADD_DSZ64(0x00000008, tmp4)
 U22a0: 00080f032008                tmp2:= ZEROEXT_DSZ32(0x0000000f)
 U22a1: 000d32800000                SAVEUIP_REGOVR(0x01, U22a2, 0x0032)
 U22a2: 000c15a00240                SAVEUIP(0x01, U2815)
-           0187b580                SEQW GOTO U07b5
+           0187b580                SEQW GOTO send_op_pcu_mailbox
 ------------------------------------------------------------------------------------
 
-U22a4: 2d0f0c24000a                PORTOUT_DSZ32_ASZ16_SC1(0x0000490c, 0x00000000)
-U22a5: 2d0f1024000a                PORTOUT_DSZ32_ASZ16_SC1(0x00004910, 0x00000000)
+U22a4: 2d0f0c24000a                PORTOUT_DSZ32_ASZ16_SC1(0x490c, 0x00000000)
+U22a5: 2d0f1024000a                PORTOUT_DSZ32_ASZ16_SC1(0x4910, 0x00000000)
 U22a6: 006309030200                tmp0:= READURAM(0x0009, 64)
            0186fe80                SEQW GOTO U06fe
 ------------------------------------------------------------------------------------
@@ -12084,7 +12086,7 @@ U243a: 0131200317b9                tmp1:= SELECTCC_DSZ32_CONDNZ(tmp9, 0xffffffff
            01e2be80                SEQW GOTO U62be
 ------------------------------------------------------------------------------------
 
-U243c: 2d0b0023500a                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00004800)
+U243c: 2d0b0023500a                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x4800)
 U243d: 000407035d48                tmp5:= AND_DSZ32(0x00000007, tmp5)
 U243e: 000894071010                tmp1:= ZEROEXT_DSZ32(0x11242020)
 
@@ -12094,7 +12096,7 @@ U2442: 0064ff7f0c1f                tmp0:= SHL_DSZ64(0xffffffffffffffff, tmp0)
            01dab580                SEQW GOTO U5ab5
 ------------------------------------------------------------------------------------
 
-U2444: 2d0bc0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000000c0)
+U2444: 2d0bc0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00c0)
 U2445: 005417030230                tmp0:= BT_DSZ64(tmp0, 0x00000017)
 U2446: 003202030230                tmp0:= SELECTCC_DSZ32_CONDB(tmp0, 0x00000002)
 
@@ -12500,7 +12502,7 @@ U256d: 0e250c031038                tmp1:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp8, 0x
 U256e: 006508037237                tmp7:= SHR_DSZ64(tmp7, 0x00000008)
 
 U2570: 000400037df1                tmp7:= AND_DSZ32(tmp1, tmp7)
-U2571: 2d0fc043700a                PORTOUT_DSZ32_ASZ16_SC1(0x000050c0, tmp7)
+U2571: 2d0fc043700a                PORTOUT_DSZ32_ASZ16_SC1(0x50c0, tmp7)
 U2572: 186a74140235    LFNCEMARK-> BTUJB_DIRECT_NOTTAKEN(tmp5, 0x00000000, U2574)
            05257580                SEQW GOTO U2575
 ------------------------------------------------------------------------------------
@@ -12639,7 +12641,7 @@ U25d5: 01600103c23c                tmp12:= SUBR_DSZ64(tmp12, 0x00000001)
 ------------------------------------------------------------------------------------
 U25d6: 000800000000                NOP
 
-U25d8: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U25d8: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
            019ea600                SEQW GOTO patch_runs_load_loop
 ------------------------------------------------------------------------------------
 U25d9: 0e2500038034                tmp8:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp4)
@@ -12659,7 +12661,7 @@ U25e5: 01600103c23c                tmp12:= SUBR_DSZ64(tmp12, 0x00000001)
 ------------------------------------------------------------------------------------
 U25e6: 000800000000                NOP
 
-U25e8: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U25e8: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
            019ea600                SEQW GOTO patch_runs_load_loop
 ------------------------------------------------------------------------------------
 U25e9: 0c800063a034                tmp10:= LDZX_DSZ16_ASZ32_SC1(tmp4, mode=0x18)
@@ -13362,7 +13364,7 @@ U2802: 000800000000                NOP
 U2804: 000c6de80240                SAVEUIP(0x01, U3a6d)
            0198d000                SEQW GOTO U18d0
 ------------------------------------------------------------------------------------
-U2805: 2d0f50000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000050, 0x00000000)
+U2805: 2d0f50000008                PORTOUT_DSZ32_ASZ16_SC1(0x0050, 0x00000000)
 U2806: 000882070008                tmp0:= ZEROEXT_DSZ32(0x00000182)
 
 U2808: 00a1ee030c08                tmp0:= CONCAT_DSZ16(0x000000ee, tmp0)
@@ -13382,12 +13384,12 @@ U2812: 001510035200                tmp5:= BTS_DSZ32(0x00000000, 0x00000010)
 U2814: 000c52300200                SAVEUIP(0x00, U0c52)
            01dee800                SEQW GOTO U5ee8
 ------------------------------------------------------------------------------------
-U2815: 2d0b0027000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00004900)
+U2815: 2d0b0027000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(PCU_CR_MICROCONTROLLER_CONFIGURATION)
 U2816: 004309000230                WRITEURAM(tmp0, 0x0009, 64)
 
 U2818: 001513030230                tmp0:= BTS_DSZ32(tmp0, 0x00000013)
-U2819: 2d0f0027000a                PORTOUT_DSZ32_ASZ16_SC1(0x00004900, tmp0)
-U281a: 2d0b0027000a     SYNCFULL-> tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00004900)
+U2819: 2d0f0027000a                PORTOUT_DSZ32_ASZ16_SC1(PCU_CR_MICROCONTROLLER_CONFIGURATION, tmp0)
+U281a: 2d0b0027000a     SYNCFULL-> tmp0:= PORTIN_DSZ32_ASZ16_SC1(PCU_CR_MICROCONTROLLER_CONFIGURATION)
 
 U281c: 286aa6380370                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000014, patch_runs_load_loop)
            01a81a00                SEQW GOTO U281a
@@ -13395,7 +13397,7 @@ U281c: 286aa6380370                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000014, patch
 U281d: 006320014200                tmpv0:= READURAM(0x0020, 64)
 U281e: 008602015214                tmpv1:= XOR_DSZ16(tmpv0, 0x00000002)
 
-U2820: 2d0b04016008                tmpv2:= PORTIN_DSZ32_ASZ16_SC1(0x00000004)
+U2820: 2d0b04016008                tmpv2:= PORTIN_DSZ32_ASZ16_SC1(0x0004)
 U2821: 001400016556                tmpv2:= BT_DSZ32(tmpv2, tmpv1)
 U2822: 007200014516                tmpv0:= SELECTCC_DSZ64_CONDB(tmpv2, tmpv0)
 
@@ -13746,7 +13748,7 @@ U2930: 390289880200                MOVETOCREG_OR_DSZ64(0x00000002, 0x289)
 U2931: 00635c014200                tmpv0:= READURAM(0x005c, 64)
 U2932: 286bbef00654                BTUJNB_DIRECT_NOTTAKEN(tmpv0, 0x00000027, uret1)
 
-U2934: 2d0b045fe00c                tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x00009704)
+U2934: 2d0b045fe00c                tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x9704)
 U2935: 286b3239023e     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp14, 0x00000000, U5e32)
 U2936: 005627014214                tmpv0:= BTR_DSZ64(tmpv0, 0x00000027)
 
@@ -14364,7 +14366,7 @@ U2b2c: 006320032200                tmp2:= READURAM(0x0020, 64)
 U2b2d: 0004fe7f2c8b                tmp2:= AND_DSZ32(0x00007ffe, tmp2)
 U2b2e: 002501032232                tmp2:= SHR_DSZ32(tmp2, 0x00000001)
 
-U2b30: 2dcfb0431c8a    LFNCEMARK-> PORTOUT_DSZ8_ASZ16_SC1(0x000050b0, tmp2, tmp1)
+U2b30: 2dcfb0431c8a    LFNCEMARK-> PORTOUT_DSZ8_ASZ16_SC1(0x50b0, tmp2, tmp1)
            0460d200                SEQW GOTO U60d2
 ------------------------------------------------------------------------------------
 U2b31: 010800831010                tmp1:= READUIP_REGOVR(0x01)
@@ -14430,10 +14432,10 @@ U2b5e: 00010903bec8                tmp11:= OR_DSZ32(0x00000009, tmp11)
 U2b60: 00430e08023b                WRITEURAM(tmp11, 0x000e, 32)
            01e0b810                SEQW SAVEUIP0 U2b61
                                    SEQW GOTO U60b8
-U2b61: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x000000c0)
+U2b61: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00c0)
 U2b62: 001603031231                tmp1:= BTR_DSZ32(tmp1, 0x00000003)
 
-U2b64: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x000000c0, tmp1)
+U2b64: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x00c0, tmp1)
            01e5f200                SEQW GOTO U65f2
 ------------------------------------------------------------------------------------
 U2b65: 000801138008                tmp8:= ZEROEXT_DSZ32(0x00000401)
@@ -14490,18 +14492,18 @@ U2b8d: 086b523002b1     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000008, U0c5
 U2b8e: 001510031231                tmp1:= BTS_DSZ32(tmp1, 0x00000010)
 
 U2b90: 001517032232                tmp2:= BTS_DSZ32(tmp2, 0x00000017)
-U2b91: 2d0f1027100a                PORTOUT_DSZ32_ASZ16_SC1(0x00004910, tmp1)
+U2b91: 2d0f1027100a                PORTOUT_DSZ32_ASZ16_SC1(0x4910, tmp1)
 U2b92: 0e6500033034                tmp3:= LDPPHYSTICKLE_DSZ64_ASZ64_SC1(tmp4)
 
 U2b94: 004008034d08                tmp4:= ADD_DSZ64(0x00000008, tmp4)
-U2b95: 2d0f1827300a                PORTOUT_DSZ32_ASZ16_SC1(0x00004918, tmp3)
+U2b95: 2d0f1827300a                PORTOUT_DSZ32_ASZ16_SC1(0x4918, tmp3)
 U2b96: 006520033233                tmp3:= SHR_DSZ64(tmp3, 0x00000020)
 
-U2b98: 2d0f1c27300a                PORTOUT_DSZ32_ASZ16_SC1(0x0000491c, tmp3)
+U2b98: 2d0f1c27300a                PORTOUT_DSZ32_ASZ16_SC1(0x491c, tmp3)
 U2b99: 00151d031231                tmp1:= BTS_DSZ32(tmp1, 0x0000001d)
-U2b9a: 2d0f1027100a                PORTOUT_DSZ32_ASZ16_SC1(0x00004910, tmp1)
+U2b9a: 2d0f1027100a                PORTOUT_DSZ32_ASZ16_SC1(0x4910, tmp1)
 
-U2b9c: 2d0f0c27200a                PORTOUT_DSZ32_ASZ16_SC1(0x0000490c, tmp2)
+U2b9c: 2d0f0c27200a                PORTOUT_DSZ32_ASZ16_SC1(0x490c, tmp2)
 U2b9d: 0004ff3f3c88                tmp3:= AND_DSZ32(0x00000fff, tmp2)
 U2b9e: 0005ff3f3cc8                tmp3:= SUB_DSZ32(0x00000fff, tmp3)
 
@@ -14556,7 +14558,7 @@ U2bc5: 0e7d00070008                STADSTGBUF_DSZ64_ASZ16_SC1(0x00000100, tmp0)
 U2bc6: 100a00000380                TESTUSTATE(SYS, 0xc000)
            025d1489                ? SEQW GOTO U5d14
 
-U2bc8: 2d0f10000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000010, 0x00000000)
+U2bc8: 2d0f10000008                PORTOUT_DSZ32_ASZ16_SC1(0x0010, 0x00000000)
 U2bc9: 000802030008                tmp0:= ZEROEXT_DSZ32(0x00000002)
            01e0aa51                SEQW SAVEUIP0 U2bca
                                    SEQW GOTO U60aa
@@ -14565,10 +14567,10 @@ U2bca: 000cf91c0240                SAVEUIP(0x00, U27f9)
 U2bcc: 000000000000                NOP
            018bc914                SEQW SAVEUIP1 U2bcd
                                    SEQW GOTO write_port_4c
-U2bcd: 2d0f18000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000018, 0x00000000)
-U2bce: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x0000004c, 0x00000000)
+U2bcd: 2d0f18000008                PORTOUT_DSZ32_ASZ16_SC1(0x0018, 0x00000000)
+U2bce: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x004c, 0x00000000)
 
-U2bd0: 2d0f50000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000050, 0x00000000)
+U2bd0: 2d0f50000008                PORTOUT_DSZ32_ASZ16_SC1(0x0050, 0x00000000)
            01a4d248                SEQW URET0
 ------------------------------------------------------------------------------------
 U2bd1: 100a00800300                TESTUSTATE(SYS, !0x8000)
@@ -14781,10 +14783,10 @@ U2c66: 000700031d72                tmp1:= NOTAND_DSZ32(tmp2, tmp5)
 
 U2c68: 000100035cb5                tmp5:= OR_DSZ32(tmp5, tmp2)
 U2c69: 386b04880271   LFNCEWTMRK-> BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000006, U3204)
-U2c6a: 2d0b1833100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00004c18)
+U2c6a: 2d0b1833100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x4c18)
 
 U2c6c: 000704031c48                tmp1:= NOTAND_DSZ32(0x00000004, tmp1)
-U2c6d: 2d0f1833100a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x00004c18, tmp1)
+U2c6d: 2d0f1833100a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x4c18, tmp1)
            04b20440                SEQW GOTO U3204
 ------------------------------------------------------------------------------------
 U2c6e: 213f00000030                unk_13f(tmp0)
@@ -15706,10 +15708,10 @@ U2f50: 004800030e30                tmp0:= ZEROEXT_DSZ64(tmp0, tmp8)
            019cc100                SEQW GOTO U1cc1
 ------------------------------------------------------------------------------------
 U2f51: 0008ff7f001f                tmp0:= ZEROEXT_DSZ32(0xffffffffffffffff)
-U2f52: 2d0fd043000a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d0, tmp0)
+U2f52: 2d0fd043000a                PORTOUT_DSZ32_ASZ16_SC1(0x50d0, tmp0)
 
 U2f54: 00151e030200                tmp0:= BTS_DSZ32(0x00000000, 0x0000001e)
-U2f55: 2d0fc843000a                PORTOUT_DSZ32_ASZ16_SC1(0x000050c8, tmp0)
+U2f55: 2d0fc843000a                PORTOUT_DSZ32_ASZ16_SC1(0x50c8, tmp0)
 U2f56: 2e7d4078000d                STADSTGBUF_DSZ64_ASZ16_SC1(0x0000be40, 0x00000000)
 
 U2f58: 2e7d8078000d                STADSTGBUF_DSZ64_ASZ16_SC1(0x0000be80, 0x00000000)
@@ -16045,7 +16047,7 @@ U3052: 00a100035d75                tmp5:= CONCAT_DSZ16(tmp5, tmp5)
            01ae2a80                SEQW GOTO U2e2a
 ------------------------------------------------------------------------------------
 
-U3054: 2dcb09031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00000009)
+U3054: 2dcb09031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x0009)
 U3055: 0004000b5d48                tmp5:= AND_DSZ32(0x00000200, tmp5)
 U3056: 004100035d71                tmp5:= OR_DSZ64(tmp1, tmp5)
            01ae2a80                SEQW GOTO U2e2a
@@ -16157,7 +16159,7 @@ U30a2: 2e7500735d4d                tmp5:= LDSTGBUF_DSZ64_ASZ16_SC1(tmp5, 0x0000b
 
 U30a4: 000400735d4b                tmp5:= AND_DSZ32(0x00007c00, tmp5)
 U30a5: 00250a035235                tmp5:= SHR_DSZ32(tmp5, 0x0000000a)
-U30a6: 2dcb08031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00000008)
+U30a6: 2dcb08031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x0008)
            01847c80                SEQW GOTO U047c
 ------------------------------------------------------------------------------------
 
@@ -16167,7 +16169,7 @@ U30aa: 011600031c40                tmp1:= unk_116(tmp1)
            01811180                SEQW GOTO U0111
 ------------------------------------------------------------------------------------
 
-U30ac: 2d0bc0031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000000c0)
+U30ac: 2d0bc0031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00c0)
 U30ad: 000401032c48                tmp2:= AND_DSZ32(0x00000001, tmp1)
 U30ae: 002510031231                tmp1:= SHR_DSZ32(tmp1, 0x00000010)
            01820280                SEQW GOTO U0202
@@ -16191,7 +16193,7 @@ U30b8: 2822c5180279                MOVETOCREG_AND_DSZ64(tmp9, 0x00000004, 0x6c5)
 U30b9: 000000000000                NOP
 U30ba: 000000000000                NOP
 
-U30bc: 2d0bf01f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000047f0)
+U30bc: 2d0bf01f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x47f0)
 U30bd: 186b111c0331                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000010, generate_#GP)
            01b03040                SEQW GOTO U3030
 ------------------------------------------------------------------------------------
@@ -16237,7 +16239,7 @@ U30da: 015d00000d00                UJMP(tmp4)
 ------------------------------------------------------------------------------------
 
 U30dc: 002402035235                tmp5:= SHL_DSZ32(tmp5, 0x00000002)
-U30dd: 2d8bc0032008                tmp2:= PORTIN_DSZ16_ASZ16_SC1(0x000000c0)
+U30dd: 2d8bc0032008                tmp2:= PORTIN_DSZ16_ASZ16_SC1(0x00c0)
 U30de: 000400631c8b                tmp1:= AND_DSZ32(0x00007800, tmp2)
            01ac8980                SEQW GOTO U2c89
 ------------------------------------------------------------------------------------
@@ -16341,7 +16343,7 @@ U3124: 1062d30b1240                tmp1:= MOVEFROMCREG_DSZ64(0x2d3, 32)
 U3125: 386a24c40271     SYNCMARK-> BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000007, U3124)
            0cb00c40                SEQW GOTO U300c
 ------------------------------------------------------------------------------------
-U3126: 2d0fb4000008                PORTOUT_DSZ32_ASZ16_SC1(0x000000b4, 0x00000000)
+U3126: 2d0fb4000008                PORTOUT_DSZ32_ASZ16_SC1(0x00b4, 0x00000000)
 
 U3128: 086a410003f8                BTUJB_DIRECT_NOTTAKEN(tmp8, 0x0000001c, U0041)
            01f76200                SEQW GOTO U7762
@@ -16446,7 +16448,7 @@ U3172: 000000000000                NOP
 
 U3174: 00635c031200                tmp1:= READURAM(0x005c, 64)
 U3175: 186a2a780331                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000011, U2e2a)
-U3176: 2d0b747b5008     SYNCFULL-> tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00001e74)
+U3176: 2d0b747b5008     SYNCFULL-> tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x1e74)
            092e2a80                SEQW GOTO U2e2a
 ------------------------------------------------------------------------------------
 
@@ -16474,13 +16476,13 @@ U3184: 000800035000                tmp5:= ZEROEXT_DSZ32(0x00000000)
 U3185: 000000000000                NOP
 U3186: 000000000000                NOP
 
-U3188: 2d0b181f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00004718)
+U3188: 2d0b181f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x4718)
 U3189: 186b11dc0371                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000017, generate_#GP)
-U318a: 2dcb20035008                tmp5:= PORTIN_DSZ8_ASZ16_SC1(0x00000020)
+U318a: 2dcb20035008                tmp5:= PORTIN_DSZ8_ASZ16_SC1(0x0020)
            01ae2a80                SEQW GOTO U2e2a
 ------------------------------------------------------------------------------------
 
-U318c: 2dcb20031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00000020)
+U318c: 2dcb20031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x0020)
 U318d: 186b115c0231                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000001, generate_#GP)
            01b19840                SEQW GOTO U3198
 ------------------------------------------------------------------------------------
@@ -16497,7 +16499,7 @@ U3195: 01600103c23c                tmp12:= SUBR_DSZ64(tmp12, 0x00000001)
 U3196: 014800000000                URET(0x00)
 ------------------------------------------------------------------------------------
 
-U3198: 3d0b00035c88                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U3198: 3d0b00035c88                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
            01ae2a00                SEQW GOTO U2e2a
 ------------------------------------------------------------------------------------
 U3199: 000000000000                NOP
@@ -16520,7 +16522,7 @@ U31a6: 000a00200200                TESTUSTATE(UCODE, 0x0800)
            01ae2ac0                ? SEQW GOTO U2e2a
 
 U31a8: 19292a380271     SYNCMARK-> CMPUJNZ_DIRECT_NOTTAKEN(tmp1, 0x00000004, U2e2a)
-U31a9: 2dcb09031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00000009)
+U31a9: 2dcb09031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x0009)
 U31aa: 000401031c48                tmp1:= AND_DSZ32(0x00000001, tmp1)
            0c08ae80                SEQW GOTO U08ae
 ------------------------------------------------------------------------------------
@@ -16581,7 +16583,7 @@ U31ce: 0dcf00000031                PORTOUT_DSZ8_ASZ16_SC1(tmp1, 0x00000000)
 U31d0: 008840034008                tmp4:= ZEROEXT_DSZ16(0x00000040)
            01d7a188                SEQW URET0
 ------------------------------------------------------------------------------------
-U31d1: 2dcb1903b008                tmp11:= PORTIN_DSZ8_ASZ16_SC1(0x00000019)
+U31d1: 2dcb1903b008                tmp11:= PORTIN_DSZ8_ASZ16_SC1(0x0019)
 U31d2: 3929d404023b                CMPUJNZ_DIRECT_NOTTAKEN(tmp11, 0x00000000, U31d4)
            01d7a188                SEQW GOTO U57a1
 ------------------------------------------------------------------------------------
@@ -16613,7 +16615,7 @@ U31e1: 000a04000200                TESTUSTATE(UCODE, 0x0004)
 U31e2: 1062850b0240                tmp0:= MOVEFROMCREG_DSZ64(CTAP_CR_DFX_CTL_STS, 32)
 
 U31e4: 3a6285c802b0                MOVETOCREG_BTR_DSZ64(tmp0, 0x0000000b, CTAP_CR_DFX_CTL_STS)
-U31e5: 2d8b801b000a                tmp0:= PORTIN_DSZ16_ASZ16_SC1(0x00004680)
+U31e5: 2d8b801b000a                tmp0:= PORTIN_DSZ16_ASZ16_SC1(0x4680)
 U31e6: 0e7d405f000d                STADSTGBUF_DSZ64_ASZ16_SC1(0x0000b740, tmp0)
            019b0c80                SEQW GOTO U1b0c
 ------------------------------------------------------------------------------------
@@ -16774,7 +16776,7 @@ U3252: 186a119c0331                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000012, gener
            01a4ed80                SEQW GOTO U24ed
 ------------------------------------------------------------------------------------
 
-U3254: 2dcf09035008                PORTOUT_DSZ8_ASZ16_SC1(0x00000009, tmp5)
+U3254: 2dcf09035008                PORTOUT_DSZ8_ASZ16_SC1(0x0009, tmp5)
 U3255: 0004000b5d48                tmp5:= AND_DSZ32(0x00000200, tmp5)
 U3256: 0008000bc008                tmp12:= ZEROEXT_DSZ32(0x00000200)
            01b23080                SEQW GOTO U3230
@@ -16788,7 +16790,7 @@ U325a: 3928459c0220                CMPUJZ_DIRECT_NOTTAKEN(rax, 0x00000002, U3745
 ------------------------------------------------------------------------------------
 
 U325c: 0004f0075d50                tmp5:= AND_DSZ32(0x80000000, tmp5)
-U325d: 2d0b3c031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000003c)
+U325d: 2d0b3c031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x003c)
 U325e: 013000031c75                tmp1:= SELECTCC_DSZ32_CONDZ(tmp5, tmp1)
            01c4d980                SEQW GOTO U44d9
 ------------------------------------------------------------------------------------
@@ -16881,10 +16883,10 @@ U3298: 0150f25c0278                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp8, U37f2)
 U3299: 1928d2010035                CMPUJZ_DIRECT_NOTTAKEN(tmp5, 0x00000000, U60d2)
            0182ba55                SEQW SAVEUIP1 U329a
                                    SEQW GOTO U02ba
-U329a: 2d0b045f100c                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00009704)
+U329a: 2d0b045f100c                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x9704)
 
 U329c: 000101031c48                tmp1:= OR_DSZ32(0x00000001, tmp1)
-U329d: 2d0f045f100c                PORTOUT_DSZ32_ASZ16_SC1(0x00009704, tmp1)
+U329d: 2d0f045f100c                PORTOUT_DSZ32_ASZ16_SC1(0x9704, tmp1)
            01d6f840                SEQW GOTO U56f8
 ------------------------------------------------------------------------------------
 U329e: 000000000000                NOP
@@ -16901,7 +16903,7 @@ U32a6: 004700031cb5                tmp1:= NOTAND_DSZ64(tmp5, tmp2)
            01dfd480                SEQW GOTO U5fd4
 ------------------------------------------------------------------------------------
 
-U32a8: 2dcf08035008    LFNCEMARK-> PORTOUT_DSZ8_ASZ16_SC1(0x00000008, tmp5)
+U32a8: 2dcf08035008    LFNCEMARK-> PORTOUT_DSZ8_ASZ16_SC1(0x0008, tmp5)
            04080e88                SEQW URET0
 ------------------------------------------------------------------------------------
 U32a9: 00080003e039                tmp14:= ZEROEXT_DSZ32(tmp9)
@@ -16910,7 +16912,7 @@ U32aa: 004c70a7b2ff                tmp11:= SAVEUIP(tmp15, 0x01, U6970)
 ------------------------------------------------------------------------------------
 
 U32ac: 00640c031233                tmp1:= SHL_DSZ64(tmp3, 0x0000000c)
-U32ad: 2d0bc0033008                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x000000c0)
+U32ad: 2d0bc0033008                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x00c0)
 U32ae: 006409032233                tmp2:= SHL_DSZ64(tmp3, 0x00000009)
            01da7580                SEQW GOTO U5a75
 ------------------------------------------------------------------------------------
@@ -16933,7 +16935,7 @@ U32b8: 000c0a880200                SAVEUIP(0x01, U020a)
 U32b9: 000000000000                NOP
 U32ba: 000000000000                NOP
 
-U32bc: 2d0bf01f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000047f0)
+U32bc: 2d0bf01f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x47f0)
 U32bd: 186b111c0331                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000010, generate_#GP)
 U32be: 00240e035235                tmp5:= SHL_DSZ32(tmp5, 0x0000000e)
            01821280                SEQW GOTO U0212
@@ -16983,7 +16985,7 @@ U32da: 086b8c100038                BTUJNB_DIRECT_NOTTAKEN(tmp8, 0x00000000, U048
 
 U32dc: 002502031235                tmp1:= SHR_DSZ32(tmp5, 0x00000002)
 U32dd: 000493071c50                tmp1:= AND_DSZ32(0x1003fff7, tmp1)
-U32de: 2d0ff01f100a                PORTOUT_DSZ32_ASZ16_SC1(0x000047f0, tmp1)
+U32de: 2d0ff01f100a                PORTOUT_DSZ32_ASZ16_SC1(0x47f0, tmp1)
            01dc1980                SEQW GOTO U5c19
 ------------------------------------------------------------------------------------
 
@@ -17035,7 +17037,7 @@ U32fe: 000720031c48                tmp1:= NOTAND_DSZ32(0x00000020, tmp1)
            01c4d580                SEQW GOTO U44d5
 ------------------------------------------------------------------------------------
 
-U3300: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U3300: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U3301: 086b96950331                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000012, U4596)
 U3302: 000401031e08    LFNCEMARK-> tmp1:= AND_DSZ32(0x00000001, tmp8)
            0501fa80                SEQW GOTO U01fa
@@ -17060,7 +17062,7 @@ U330d: 000800031008                tmp1:= ZEROEXT_DSZ32(0x00000000)
 U330e: 000000000000                NOP
 
 U3310: 186bd2010235                BTUJNB_DIRECT_NOTTAKEN(tmp5, 0x00000000, U60d2)
-U3311: 2d0b0413100c                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00008404)
+U3311: 2d0b0413100c                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x8404)
 U3312: 002c02031231                tmp1:= ROL_DSZ32(tmp1, 0x00000002)
            01849480                SEQW GOTO U0494
 ------------------------------------------------------------------------------------
@@ -17138,7 +17140,7 @@ U3342: 000100035d71                tmp5:= OR_DSZ32(tmp1, tmp5)
 
 U3344: 00e100035d75                tmp5:= CONCAT_DSZ8(tmp5, tmp5)
 U3345: 000401435d48                tmp5:= AND_DSZ32(0x00001001, tmp5)
-U3346: 2d0b1833100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00004c18)
+U3346: 2d0b1833100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x4c18)
            01822a80                SEQW GOTO U022a
 ------------------------------------------------------------------------------------
 
@@ -17149,10 +17151,10 @@ U3349: 000cd28002c0                SAVEUIP(0x01, U60d2)
 U334a: 000000000000                NOP
 
 U334c: 004800032035                tmp2:= ZEROEXT_DSZ64(tmp5)
-U334d: 2d4f1821400c                PORTOUT_DSZ64_ASZ16_SC1(0x00008818, tmpv0)
+U334d: 2d4f1821400c                PORTOUT_DSZ64_ASZ16_SC1(0x8818, tmpv0)
            01a71189                SEQW URET0
 ------------------------------------------------------------------------------------
-U334e: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U334e: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
            01a71189                SEQW GOTO generate_#GP
 ------------------------------------------------------------------------------------
 
@@ -17244,7 +17246,7 @@ U3386: 20436f035200                tmp5:= WRITEURAM(0x00000000, 0x006f, 64)
            04b80188                SEQW GOTO U3801
 ------------------------------------------------------------------------------------
 
-U3388: 2d0b181f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00004718)
+U3388: 2d0b181f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x4718)
 U3389: 186b11dc0371                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x00000017, generate_#GP)
 U338a: 192811dc0235                CMPUJZ_DIRECT_NOTTAKEN(tmp5, 0x00000003, generate_#GP)
            01d6ed80                SEQW GOTO U56ed
@@ -17264,7 +17266,7 @@ U3395: 10628d0f2240                tmp2:= MOVEFROMCREG_DSZ64(0x38d, 32)
 U3396: 015d00000f40                UJMP(tmp13)
 ------------------------------------------------------------------------------------
 
-U3398: 3d0f00035c88    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x00000000, tmp2, tmp5)
+U3398: 3d0f00035c88    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x0000, tmp2, tmp5)
            0460d200                SEQW GOTO U60d2
 ------------------------------------------------------------------------------------
 U3399: 0e750003603c                tmp6:= LDSTGBUF_DSZ64_ASZ16_SC1(tmp12)
@@ -17284,19 +17286,19 @@ U33a5: 000a01000200                TESTUSTATE(UCODE, UST_MSLOOPCTR_NONZERO)
 U33a6: 014800000000                URET(0x00)
 ------------------------------------------------------------------------------------
 
-U33a8: 3d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
-U33a9: 3d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x00000000, tmp2, tmp5)
+U33a8: 3d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
+U33a9: 3d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x0000, tmp2, tmp5)
            01d4a840                SEQW GOTO U54a8
 ------------------------------------------------------------------------------------
 U33aa: 000000000000                NOP
 
-U33ac: 3d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U33ac: 3d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
 U33ad: 186a11dc07f1                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x0000003f, generate_#GP)
 U33ae: 386a98cc06b3                BTUJB_DIRECT_NOTTAKEN(tmp3, 0x0000002b, U3398)
            0185b480                SEQW GOTO U05b4
 ------------------------------------------------------------------------------------
 
-U33b0: 2d0b181f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00004718)
+U33b0: 2d0b181f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x4718)
 U33b1: 186b119c03f1                BTUJNB_DIRECT_NOTTAKEN(tmp1, 0x0000001e, generate_#GP)
            01b39840                SEQW GOTO U3398
 ------------------------------------------------------------------------------------
@@ -17585,9 +17587,9 @@ U34a6: 002407039239                tmp9:= SHL_DSZ32(tmp9, 0x00000007)
 U34a8: 000d01800000                SAVEUIP_REGOVR(0x01, U34a9, 0x0001)
            0182ba00                SEQW GOTO U02ba
 U34a9: 00151f031200                tmp1:= BTS_DSZ32(0x00000000, 0x0000001f)
-U34aa: 2d0f3c031008                PORTOUT_DSZ32_ASZ16_SC1(0x0000003c, tmp1)
+U34aa: 2d0f3c031008                PORTOUT_DSZ32_ASZ16_SC1(0x003c, tmp1)
 
-U34ac: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U34ac: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 U34ad: 0008b0535009                tmp5:= ZEROEXT_DSZ32(0x000034b0)
 U34ae: 104a20800240                TESTUSTATE(SYS, !UST_SMM | 0x2000)
            01c79880                ? SEQW GOTO U4798
@@ -17877,7 +17879,7 @@ U35ae: 0062c31b3200                tmp3:= MOVEFROMCREG_DSZ64(0x6c3)
 
 U35b0: 0962c3180273                MOVETOCREG_BTS_DSZ64(tmp3, 0x00000004, 0x6c3)
 U35b1: 00151b033200                tmp3:= BTS_DSZ32(0x00000000, 0x0000001b)
-U35b2: 2d0fb4033008                PORTOUT_DSZ32_ASZ16_SC1(0x000000b4, tmp3)
+U35b2: 2d0fb4033008                PORTOUT_DSZ32_ASZ16_SC1(0x00b4, tmp3)
 
 U35b4: 004247000010                MOVETOCREG_DSZ64(0x00000000, 0x000)
 U35b5: 000000000000     SYNCFULL-> NOP
@@ -18371,7 +18373,7 @@ U374c: 053f00008008    LFNCEWAIT-> mm0:= unk_53f(0x00000000)
 U374d: 000000000000                NOP
 U374e: 000000000000                NOP
 
-U3750: 3d0b00035c88     SYNCWAIT-> tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U3750: 3d0b00035c88     SYNCWAIT-> tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
            0a370000                SEQW GOTO U3700
 ------------------------------------------------------------------------------------
 U3751: 000000000000                NOP
@@ -18400,7 +18402,7 @@ U3760: 100a20800200     SYNCWAIT-> TESTUSTATE(SYS, !UST_SMM)
 U3761: 00080002303c                rbx:= ZEROEXT_DSZ32(tmp12)
            0a1cbe4c                SEQW GOTO uret1
 ------------------------------------------------------------------------------------
-U3762: 2d0ba0022008                rdx:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U3762: 2d0ba0022008                rdx:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
 U3764: 00080002303e                rbx:= ZEROEXT_DSZ32(tmp14)
            0197ec00                SEQW GOTO uend
@@ -18410,7 +18412,7 @@ U3766: 000000000000                NOP
 
 U3768: 100a20800200     SYNCWAIT-> TESTUSTATE(SYS, !UST_SMM)
            0a1cbe4c                ? SEQW URET1
-U3769: 3d0b78023008                rbx:= PORTIN_DSZ32_ASZ16_SC1(0x00000078)
+U3769: 3d0b78023008                rbx:= PORTIN_DSZ32_ASZ16_SC1(0x0078)
            0a1cbe4c                SEQW GOTO uret1
 ------------------------------------------------------------------------------------
 U376a: 096205800240                MOVETOCREG_BTS_DSZ64(0x00000006, 0x005)
@@ -18433,7 +18435,7 @@ U3774: 000cc6e40240                SAVEUIP(0x01, U39c6)
 U3775: 000000000000                NOP
 U3776: 000000000000                NOP
 
-U3778: 3d0b00035c88     SYNCWAIT-> tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U3778: 3d0b00035c88     SYNCWAIT-> tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
            0a372000                SEQW GOTO U3720
 ------------------------------------------------------------------------------------
 U3779: 000000000000                NOP
@@ -18452,7 +18454,7 @@ U3782: 10080003c03c     SYNCWAIT-> tmp12:= ZEROEXT_DSZ32N(tmp12)
 
 U3784: 100a00000280                TESTUSTATE(SYS, 0x4000)
            01b78600                ? SEQW GOTO U3786
-U3785: 3d0b7803c008                tmp12:= PORTIN_DSZ32_ASZ16_SC1(0x00000078)
+U3785: 3d0b7803c008                tmp12:= PORTIN_DSZ32_ASZ16_SC1(0x0078)
 U3786: 004700031d7c                tmp1:= NOTAND_DSZ64(tmp12, tmp5)
 
 U3788: 015109000231   LFNCEWTMRK-> UJMPCC_DIRECT_NOTTAKEN_CONDNZ(tmp1, U0009)
@@ -18597,7 +18599,7 @@ U37e8: 000cd20002c0                SAVEUIP(0x00, U60d2)
 U37e9: 0047530b1d50                tmp1:= NOTAND_DSZ64(0x40007fff, tmp5)
 U37ea: 015109000231   LFNCEWTMRK-> UJMPCC_DIRECT_NOTTAKEN_CONDNZ(tmp1, U0009)
 
-U37ec: 2dcb08031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00000008)
+U37ec: 2dcb08031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x0008)
 U37ed: 000410031c48                tmp1:= AND_DSZ32(0x00000010, tmp1)
 U37ee: 013100035d71     SYNCWAIT-> tmp5:= SELECTCC_DSZ32_CONDNZ(tmp1, tmp5)
            0b0000ce                SEQW URET1
@@ -19645,7 +19647,7 @@ U3b1d: 01501e6c0271                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp1, U3b1e)
 ------------------------------------------------------------------------------------
 U3b1e: 0e2518037038                tmp7:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp8, 0x00000018)
 
-U3b20: 2d0fc043700a                PORTOUT_DSZ32_ASZ16_SC1(0x000050c0, tmp7)
+U3b20: 2d0fc043700a                PORTOUT_DSZ32_ASZ16_SC1(0x50c0, tmp7)
            01a57500                SEQW GOTO U2575
 ------------------------------------------------------------------------------------
 U3b21: 000800032035                tmp2:= ZEROEXT_DSZ32(tmp5)
@@ -19735,7 +19737,7 @@ U3b62: 000416033cd0    LFNCEWAIT-> tmp3:= AND_DSZ32(0x000009bf, tmp3)
 ------------------------------------------------------------------------------------
 
 U3b64: 001512032232                tmp2:= BTS_DSZ32(tmp2, 0x00000012)
-U3b65: 2d0fd843200a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d8, tmp2)
+U3b65: 2d0fd843200a                PORTOUT_DSZ32_ASZ16_SC1(0x50d8, tmp2)
 U3b66: 000d01800000                SAVEUIP_REGOVR(0x01, U3b68, 0x0001)
            01de4e80                SEQW GOTO U5e4e
 
@@ -20029,7 +20031,7 @@ U3c5a: 000830031008                tmp1:= ZEROEXT_DSZ32(0x00000030)
 
 U3c5c: 10629d0b9240                tmp9:= MOVEFROMCREG_DSZ64(0x29d, 32)
 U3c5d: 39629d480279                MOVETOCREG_BTS_DSZ64(tmp9, 0x00000005, 0x29d)
-U3c5e: 2d0fb4031008    LFNCEWAIT-> PORTOUT_DSZ32_ASZ16_SC1(0x000000b4, tmp1)
+U3c5e: 2d0fb4031008    LFNCEWAIT-> PORTOUT_DSZ32_ASZ16_SC1(0x00b4, tmp1)
 
 U3c60: 000d00800000                SAVEUIP_REGOVR(0x01, U3c61, 0x0000)
            01ab1500                SEQW GOTO lbsync_full
@@ -20324,8 +20326,8 @@ U3d52: 000805031008                tmp1:= ZEROEXT_DSZ32(0x00000005)
 
 U3d54: 0ea500032034                tmp2:= LDPPHYSTICKLE_DSZ16_ASZ64_SC1(tmp4)
 U3d55: 000d218c0000                SAVEUIP_REGOVR(0x01, U3d56, 0x0321)
-           01dc6240                SEQW GOTO U5c62
-U3d56: 2d0ba0035008                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+           01dc6240                SEQW GOTO send_op_data_pcu_mailbox
+U3d56: 2d0ba0035008                tmp5:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
 U3d58: 0e2502032034                tmp2:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp4, 0x00000002)
 U3d59: 0e2506033034                tmp3:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp4, 0x00000006)
@@ -20334,7 +20336,7 @@ U3d5a: 000400035d72                tmp5:= AND_DSZ32(tmp2, tmp5)
 U3d5c: 000100035d73                tmp5:= OR_DSZ32(tmp3, tmp5)
 U3d5d: 000807031008                tmp1:= ZEROEXT_DSZ32(0x00000007)
 U3d5e: 000d518c0000                SAVEUIP_REGOVR(0x01, U3d60, 0x0351)
-           01dc6280                SEQW GOTO U5c62
+           01dc6280                SEQW GOTO send_op_data_pcu_mailbox
 
 U3d60: 00000a034d08                tmp4:= ADD_DSZ32(0x0000000a, tmp4)
 U3d61: 01600103c23c                tmp12:= SUBR_DSZ64(tmp12, 0x00000001)
@@ -20712,23 +20714,23 @@ U3ea8: 26a631808f7e                mm0:= unk_6a6(tmm6, tmm5)
            0197ec00                SEQW GOTO uend
 ------------------------------------------------------------------------------------
 U3ea9: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U3eaa: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x0000005c, tmp15)
+U3eaa: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x005c, tmp15)
 
-U3eac: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x0000005c)
+U3eac: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x005c)
 U3ead: 386bac38023f                BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x00000000, U3eac)
-U3eae: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3eae: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U3eb0: 386bb1f803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3eb1)
            083eae00                SEQW GOTO U3eae
 ------------------------------------------------------------------------------------
-U3eb1: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
-U3eb2: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3eb1: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
+U3eb2: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U3eb4: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U3eb5: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3eb6: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U3eb6: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U3eb8: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3eb8: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3eb9: 386bbaf803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3eba)
            08beb840                SEQW GOTO U3eb8
 ------------------------------------------------------------------------------------
@@ -20736,25 +20738,25 @@ U3eba: 00653003f214                tmp15:= SHR_DSZ64(tmpv0, 0x00000030)
 
 U3ebc: 00e10603ffc8                tmp15:= CONCAT_DSZ8(0x00000006, tmp15)
 U3ebd: 00a1c007ffc8                tmp15:= CONCAT_DSZ16(0x000001c0, tmp15)
-U3ebe: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3ebe: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U3ec0: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U3ec1: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3ec2: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U3ec2: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U3ec4: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3ec4: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3ec5: 386bc6f803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3ec6)
            08bec440                SEQW GOTO U3ec4
 ------------------------------------------------------------------------------------
-U3ec6: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U3ec6: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 
 U3ec8: 00000403ffc8                tmp15:= ADD_DSZ32(0x00000004, tmp15)
-U3ec9: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3ec9: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U3eca: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U3ecc: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3ecd: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U3ece: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3ecd: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U3ece: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U3ed0: 386bd1f803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3ed1)
            083ece00                SEQW GOTO U3ece
@@ -20764,79 +20766,79 @@ U3ed2: 00652003f23f                tmp15:= SHR_DSZ64(tmp15, 0x00000020)
 
 U3ed4: 002d1003f23f                tmp15:= ROR_DSZ32(tmp15, 0x00000010)
 U3ed5: 0001ff03ffc8                tmp15:= OR_DSZ32(0x000000ff, tmp15)
-U3ed6: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3ed6: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U3ed8: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U3ed9: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3eda: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U3eda: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U3edc: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3edc: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3edd: 386bdef803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3ede)
            08bedc40                SEQW GOTO U3edc
 ------------------------------------------------------------------------------------
-U3ede: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U3ede: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 
 U3ee0: 00000803ffc8                tmp15:= ADD_DSZ32(0x00000008, tmp15)
-U3ee1: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3ee1: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U3ee2: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U3ee4: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3ee5: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U3ee6: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3ee5: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U3ee6: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U3ee8: 386be9f803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3ee9)
            083ee600                SEQW GOTO U3ee6
 ------------------------------------------------------------------------------------
 U3ee9: 00080003f014                tmp15:= ZEROEXT_DSZ32(tmpv0)
-U3eea: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3eea: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U3eec: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U3eed: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3eee: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U3eee: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U3ef0: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3ef0: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3ef1: 386bf2f803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3ef2)
            08bef040                SEQW GOTO U3ef0
 ------------------------------------------------------------------------------------
 U3ef2: 00080003f000                tmp15:= ZEROEXT_DSZ32(0x00000000)
 
-U3ef4: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3ef4: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U3ef5: 00081903f008                tmp15:= ZEROEXT_DSZ32(0x00000019)
 U3ef6: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
 
-U3ef8: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U3ef9: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3ef8: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U3ef9: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3efa: 386bfcf803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3efc)
            093ef980                SEQW GOTO U3ef9
 ------------------------------------------------------------------------------------
 
-U3efc: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U3efc: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 U3efd: 00000c03ffc8                tmp15:= ADD_DSZ32(0x0000000c, tmp15)
-U3efe: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3efe: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U3f00: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U3f01: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3f02: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U3f02: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U3f04: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3f04: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3f05: 386b06fc03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3f06)
            08bf0440                SEQW GOTO U3f04
 ------------------------------------------------------------------------------------
-U3f06: 2d0ba0015008                tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U3f06: 2d0ba0015008                tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
-U3f08: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U3f08: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 U3f09: 00001003ffc8                tmp15:= ADD_DSZ32(0x00000010, tmp15)
-U3f0a: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U3f0a: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U3f0c: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U3f0d: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U3f0e: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U3f0e: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U3f10: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U3f10: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U3f11: 386b12fc03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U3f12)
            08bf1040                SEQW GOTO U3f10
 ------------------------------------------------------------------------------------
-U3f12: 2d0ba0016008                tmpv2:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U3f12: 2d0ba0016008                tmpv2:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
 U3f14: 002100015556     SYNCFULL-> tmpv1:= CONCAT_DSZ32(tmpv2, tmpv1)
            084798cc                SEQW URET1
@@ -23009,7 +23011,7 @@ U4519: 00088d7bc00a                tmp12:= ZEROEXT_DSZ32(0x00005e8d)
 U451a: 000000000000                NOP
 
 U451c: 000800035000                tmp5:= ZEROEXT_DSZ32(0x00000000)
-U451d: 2d4b10031008                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x00000010)
+U451d: 2d4b10031008                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x0010)
 U451e: 006323030200                tmp0:= READURAM(0x0023, 64)
 
 U4520: 000600030c31                tmp0:= XOR_DSZ32(tmp1, tmp0)
@@ -23020,7 +23022,7 @@ U4522: 000c0da00240                SAVEUIP(0x01, U280d)
 
 U4524: 006275170200                tmp0:= MOVEFROMCREG_DSZ64(PMH_CR_EMRR_MASK)
 U4525: 096275d402b0                MOVETOCREG_BTS_DSZ64(tmp0, 0x0000000b, PMH_CR_EMRR_MASK)
-U4526: 2d4b10031008                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x00000010)
+U4526: 2d4b10031008                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x0010)
 
 U4528: 004262140231                MOVETOCREG_DSZ64(tmp1, 0x562)
 U4529: 006213176200                tmp6:= MOVEFROMCREG_DSZ64(0x513)
@@ -23028,7 +23030,7 @@ U452a: 286b2a2c0236                BTUJNB_DIRECT_NOTTAKEN(tmp6, 0x00000000, U1b2
            019b2180                SEQW GOTO U1b21
 ------------------------------------------------------------------------------------
 
-U452c: 2d4b10030008                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x00000010)
+U452c: 2d4b10030008                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x0010)
 U452d: 004263140230                MOVETOCREG_DSZ64(tmp0, 0x563)
            0186ee40                SEQW GOTO U06ee
 ------------------------------------------------------------------------------------
@@ -23102,8 +23104,8 @@ U455a: 000000000000                NOP
 
 U455c: 000d00800000                SAVEUIP_REGOVR(0x01, U455d, 0x0000)
            01de4e00                SEQW GOTO U5e4e
-U455d: 2d4ba043000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x000050a0)
-U455e: 2d4ba843100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x000050a8)
+U455d: 2d4ba043000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x50a0)
+U455e: 2d4ba843100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x50a8)
 
 U4560: 104205080270                MOVETOCREG_DSZ64(tmp0, 0x205, 32)
 U4561: 104206080271                MOVETOCREG_DSZ64(tmp1, 0x206, 32)
@@ -23145,7 +23147,7 @@ U4579: 000000000000                NOP
 U457a: 000000000000                NOP
 
 U457c: 001510035200                tmp5:= BTS_DSZ32(0x00000000, 0x00000010)
-U457d: 2d0bd843200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U457d: 2d0bd843200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U457e: 001411032232                tmp2:= BT_DSZ32(tmp2, 0x00000011)
 
 U4580: 003300035d72                tmp5:= SELECTCC_DSZ32_CONDNB(tmp2, tmp5)
@@ -23181,7 +23183,7 @@ U4594: 000501031008                tmp1:= SUB_DSZ32(0x00000001)
 U4595: 000ca8940280                SAVEUIP(0x01, U45a8)
            01a79940                SEQW GOTO U2799
 ------------------------------------------------------------------------------------
-U4596: 2d0b3c031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000003c)
+U4596: 2d0b3c031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x003c)
 
 U4598: 1929d2010031    LFNCEMARK-> CMPUJNZ_DIRECT_NOTTAKEN(tmp1, 0x00000000, U60d2)
            04339800                SEQW GOTO U3398
@@ -23647,7 +23649,7 @@ U472a: 292825240030                CMPUJZ_DIRECT_NOTTAKEN(tmp0, 0x00000000, U192
 
 U472c: 1062800b0240                tmp0:= MOVEFROMCREG_DSZ64(0x280, 32)
 U472d: 286a25640330                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000011, U1925)
-U472e: 2d0b0c030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x0000000c)
+U472e: 2d0b0c030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000c)
 
 U4730: 1062080b1240                tmp1:= MOVEFROMCREG_DSZ64(0x208, 32)
 U4731: 000700030c31                tmp0:= NOTAND_DSZ32(tmp1, tmp0)
@@ -23663,18 +23665,18 @@ U4736: 000800000000                NOP
 U4738: 00080b030008                tmp0:= ZEROEXT_DSZ32(0x0000000b)
            01e0aa10                SEQW SAVEUIP0 U4739
                                    SEQW GOTO U60aa
-U4739: 2d4ba043000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x000050a0)
-U473a: 2d4ba843100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x000050a8)
+U4739: 2d4ba043000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x50a0)
+U473a: 2d4ba843100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x50a8)
 
-U473c: 2d4f301f000a                PORTOUT_DSZ64_ASZ16_SC1(0x00004730, tmp0)
-U473d: 2d4f381f100a                PORTOUT_DSZ64_ASZ16_SC1(0x00004738, tmp1)
+U473c: 2d4f301f000a                PORTOUT_DSZ64_ASZ16_SC1(0x4730, tmp0)
+U473d: 2d4f381f100a                PORTOUT_DSZ64_ASZ16_SC1(0x4738, tmp1)
 U473e: 104205080270                MOVETOCREG_DSZ64(tmp0, 0x205, 32)
 
 U4740: 104206080271                MOVETOCREG_DSZ64(tmp1, 0x206, 32)
 U4741: 006323030200                tmp0:= READURAM(0x0023, 64)
 U4742: 004440030c08                tmp0:= AND_DSZ64(0x00000040, tmp0)
 
-U4744: 2d4f10030008                PORTOUT_DSZ64_ASZ16_SC1(0x00000010, tmp0)
+U4744: 2d4f10030008                PORTOUT_DSZ64_ASZ16_SC1(0x0010, tmp0)
 U4745: 000803030008                tmp0:= ZEROEXT_DSZ32(0x00000003)
            01e0aa51                SEQW SAVEUIP0 U4746
                                    SEQW GOTO U60aa
@@ -23903,7 +23905,7 @@ U4806: 05fa44039e79                tmm1:= SHUFPD(tmm1, tmm1)
 U4808: 0153041402f3                UJMPCC_DIRECT_NOTTAKEN_CONDNBE(tmp3, U6504)
            04a16248                SEQW URET0
 ------------------------------------------------------------------------------------
-U4809: 2d4fd8035008    LFNCEMARK-> PORTOUT_DSZ64_ASZ16_SC1(0x000000d8, tmp5)
+U4809: 2d4fd8035008    LFNCEMARK-> PORTOUT_DSZ64_ASZ16_SC1(0x00d8, tmp5)
            04a16248                SEQW GOTO U2162
 ------------------------------------------------------------------------------------
 U480a: 0c4b20338000                tmp8:= RDSEGFLD(FS, BASE)
@@ -24212,7 +24214,7 @@ U4919: 00040f030c08                tmp0:= AND_DSZ32(0x0000000f, tmp0)
 U491a: 000502032c08                tmp2:= SUB_DSZ32(0x00000002, tmp0)
 
 U491c: 0352282402b2   LFNCEWTMRK-> UJMPCC_DIRECT_NOTTAKEN_CONDLE(tmp2, U4928)
-U491d: 2d0bc8031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000000c8)
+U491d: 2d0bc8031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00c8)
 U491e: 002510031231                tmp1:= SHR_DSZ32(tmp1, 0x00000010)
 
 U4920: 000407031c48                tmp1:= AND_DSZ32(0x00000007, tmp1)
@@ -24379,7 +24381,7 @@ U49aa: 000800000000                NOP
 U49ac: 000a08000200                TESTUSTATE(UCODE, 0x0008)
            01c3e400                ? SEQW GOTO U43e4
 U49ad: 000800000000                NOP
-U49ae: 2d0be823600a                tmp6:= PORTIN_DSZ32_ASZ16_SC1(0x000048e8)
+U49ae: 2d0be823600a                tmp6:= PORTIN_DSZ32_ASZ16_SC1(0x48e8)
 
 U49b0: 10621d0b0240                tmp0:= MOVEFROMCREG_DSZ64(0x21d, 32)
 U49b1: 001408030230                tmp0:= BT_DSZ32(tmp0, 0x00000008)
@@ -24609,7 +24611,7 @@ U4a80: 022400035d72                tmp5:= unk_224(tmp2, tmp5)
 U4a81: 000000035835                tmp5:= ADD_DSZ32(tmp5, rax)
 U4a82: 000020035d48                tmp5:= ADD_DSZ32(0x00000020, tmp5)
 
-U4a84: 2d0fcc43500a                PORTOUT_DSZ32_ASZ16_SC1(0x000050cc, tmp5)
+U4a84: 2d0fcc43500a                PORTOUT_DSZ32_ASZ16_SC1(0x50cc, tmp5)
 U4a85: 000810037009                tmp7:= ZEROEXT_DSZ32(0x00002010)
 U4a86: 00151f037237                tmp7:= BTS_DSZ32(tmp7, 0x0000001f)
 
@@ -24619,11 +24621,11 @@ U4a8a: 002100037df1                tmp7:= CONCAT_DSZ32(tmp1, tmp7)
 
 U4a8c: 006514037237                tmp7:= SHR_DSZ64(tmp7, 0x00000014)
 U4a8d: 00640c037237                tmp7:= SHL_DSZ64(tmp7, 0x0000000c)
-U4a8e: 2d0fc043700a                PORTOUT_DSZ32_ASZ16_SC1(0x000050c0, tmp7)
+U4a8e: 2d0fc043700a                PORTOUT_DSZ32_ASZ16_SC1(0x50c0, tmp7)
 
 U4a90: 000d05800000                SAVEUIP_REGOVR(0x01, U4a91, 0x0005)
            0182ba00                SEQW GOTO U02ba
-U4a91: 2d0bc843400a                tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x000050c8)
+U4a91: 2d0bc843400a                tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x50c8)
 U4a92: 006320031200                tmp1:= READURAM(0x0020, 64)
 
 U4a94: 0004fe7f1c4b                tmp1:= AND_DSZ32(0x00007ffe, tmp1)
@@ -24632,7 +24634,7 @@ U4a96: 092822340c74    LFNCEMARK-> CMPUJZ_DIRECT_NOTTAKEN(tmp4, tmp1, U0d22)
 
 U4a98: 00151e032200                tmp2:= BTS_DSZ32(0x00000000, 0x0000001e)
 U4a99: 092819340cb4   LFNCEWTMRK-> CMPUJZ_DIRECT_NOTTAKEN(tmp4, tmp2, U0d19)
-U4a9a: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U4a9a: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 
 U4a9c: 2e75007b200d                tmp2:= LDSTGBUF_DSZ64_ASZ16_SC1(0x0000be00)
 U4a9d: 0e2500034032                tmp4:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp2)
@@ -25044,7 +25046,7 @@ U4bfe: 002408030233                tmp0:= SHL_DSZ32(tmp3, 0x00000008)
 U4c00: 000114030c08                tmp0:= OR_DSZ32(0x00000014, tmp0)
 U4c01: 000d10800000                SAVEUIP_REGOVR(0x01, U4c02, 0x0010)
            01dc6640                SEQW GOTO U5c66
-U4c02: 2d0ba0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U4c02: 2d0ba0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
 U4c04: 000500030cf0                tmp0:= SUB_DSZ32(tmp0, tmp3)
 U4c05: 015000000fb0     SYNCFULL-> UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp0, tmp14)
@@ -25451,7 +25453,7 @@ U4d64: 011400000c00                unk_114(tmp0)
 U4d65: 002100037df0                tmp7:= CONCAT_DSZ32(tmp0, tmp7)
 U4d66: 004387000237                WRITEURAM(tmp7, 0x0087, 64)
 
-U4d68: 2d0bc4030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000000c4)
+U4d68: 2d0bc4030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00c4)
 U4d69: 0004ff030c08                tmp0:= AND_DSZ32(0x000000ff, tmp0)
 U4d6a: 004342080230                WRITEURAM(tmp0, 0x0042, 32)
 
@@ -25465,10 +25467,10 @@ U4d72: 00421b140230                MOVETOCREG_DSZ64(tmp0, 0x51b)
 
 U4d74: 00081b2b3008                tmp3:= ZEROEXT_DSZ32(0x00000a1b)
 U4d75: 0042c3180233                MOVETOCREG_DSZ64(tmp3, 0x6c3)
-U4d76: 2d4bf01b000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x000046f0)
+U4d76: 2d4bf01b000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x46f0)
 
 U4d78: 004335000230                WRITEURAM(tmp0, 0x0035, 64)
-U4d79: 2d4bf81b100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x000046f8)
+U4d79: 2d4bf81b100a                tmp1:= PORTIN_DSZ64_ASZ16_SC1(0x46f8)
 U4d7a: 004377000231                WRITEURAM(tmp1, 0x0077, 64)
 
 U4d7c: 005409032230                tmp2:= BT_DSZ64(tmp0, 0x00000009)
@@ -25757,9 +25759,9 @@ U4e76: 0151111c0272                UJMPCC_DIRECT_NOTTAKEN_CONDNZ(tmp2, generate_
 
 U4e78: 00320043a238                tmp10:= SELECTCC_DSZ32_CONDB(tmp8, 0x00001000)
 U4e79: 00010003ae3a                tmp10:= OR_DSZ32(tmp10, tmp8)
-U4e7a: 2d0f7003a008                PORTOUT_DSZ32_ASZ16_SC1(0x00000070, tmp10)
+U4e7a: 2d0f7003a008                PORTOUT_DSZ32_ASZ16_SC1(0x0070, tmp10)
 
-U4e7c: 2d0b7403a008     SYNCFULL-> tmp10:= PORTIN_DSZ32_ASZ16_SC1(0x00000074)
+U4e7c: 2d0b7403a008     SYNCFULL-> tmp10:= PORTIN_DSZ32_ASZ16_SC1(0x0074)
 U4e7d: 013180031238                tmp1:= SELECTCC_DSZ32_CONDNZ(tmp8, 0x00000080)
 U4e7e: 000140031c48                tmp1:= OR_DSZ32(0x00000040, tmp1)
            080ae680                SEQW GOTO U0ae6
@@ -26390,7 +26392,7 @@ U50b6: 000410032c88                tmp2:= AND_DSZ32(0x00000010, tmp2)
 
 U50b8: 000100031c72                tmp1:= OR_DSZ32(tmp2, tmp1)
 U50b9: 2d9fc0031008                tmp1:= unk_d9f(0x000000c0)
-U50ba: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U50ba: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 
 U50bc: 004341000235                WRITEURAM(tmp5, 0x0041, 64)
            01b2cd14                SEQW SAVEUIP1 U50bd
@@ -27458,14 +27460,14 @@ U54a9: 0150d20002f1                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp1, U60d2)
                                    SEQW GOTO U02ba
 U54aa: 00151f031200                tmp1:= BTS_DSZ32(0x00000000, 0x0000001f)
 
-U54ac: 2d0f3c031008                PORTOUT_DSZ32_ASZ16_SC1(0x0000003c, tmp1)
+U54ac: 2d0f3c031008                PORTOUT_DSZ32_ASZ16_SC1(0x003c, tmp1)
            01d6f800                SEQW GOTO U56f8
 ------------------------------------------------------------------------------------
 U54ad: 0008f1060010                rax:= ZEROEXT_DSZ32(0x80000001)
 U54ae: 00217a570009                tmp0:= CONCAT_DSZ32(0x0000357a)
 
 U54b0: 1042c0080270                MOVETOCREG_DSZ64(tmp0, 0x2c0, 32)
-U54b1: 2d4b481b000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x00004648)
+U54b1: 2d4b481b000a                tmp0:= PORTIN_DSZ64_ASZ16_SC1(0x4648)
 U54b2: 186a0e590330                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000011, U660e)
 
 U54b4: 000cb9eb2240                tmp2:= SAVEUIP(0x01, U3ab9)
@@ -27553,7 +27555,7 @@ U54f9: 2928fa910230                CMPUJZ_DIRECT_NOTTAKEN(tmp0, 0x00000002, U54f
 ------------------------------------------------------------------------------------
 U54fa: 30420f080240                MOVETOCREG_DSZ64(0x00000000, 0x20f, 32)
 
-U54fc: 2d0bc843400a                tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x000050c8)
+U54fc: 2d0bc843400a                tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x50c8)
 U54fd: 006320031200                tmp1:= READURAM(0x0020, 64)
 U54fe: 0004fe7f1c4b                tmp1:= AND_DSZ32(0x00007ffe, tmp1)
 
@@ -28088,13 +28090,13 @@ U56ee: 000820032008                tmp2:= ZEROEXT_DSZ32(0x00000020)
 U56f0: 00084e4fa009                tmp10:= ZEROEXT_DSZ32(0x0000334e)
 U56f1: 000d03800000     SYNCWAIT-> SAVEUIP_REGOVR(0x01, U56f2, 0x0003)
            0a82ba40                SEQW GOTO U02ba
-U56f2: 3d0b00033c88                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U56f2: 3d0b00033c88                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
 
 U56f4: 101400033c73                tmp3:= BT_DSZN(tmp3, tmp1)
 U56f5: 005200000eb3                UJMPCC_DIRECT_NOTTAKEN_CONDB(tmp3, tmp10)
-U56f6: 3d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x00000000, tmp2, tmp5)
+U56f6: 3d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x0000, tmp2, tmp5)
 
-U56f8: 2d0f40000008    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U56f8: 2d0f40000008    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
            0460d200                SEQW GOTO U60d2
 ------------------------------------------------------------------------------------
 U56f9: 20436b00023b                WRITEURAM(tmp11, 0x006b, 64)
@@ -28326,7 +28328,7 @@ U57a5: 20435308023f                WRITEURAM(tmp15, 0x0053, 32)
 U57a6: 0062c31b0200                tmp0:= MOVEFROMCREG_DSZ64(0x6c3)
 
 U57a8: 2a62c3580270     SYNCFULL-> MOVETOCREG_BTR_DSZ64(tmp0, 0x00000005, 0x6c3)
-U57a9: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x0000004c, 0x00000000)
+U57a9: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x004c, 0x00000000)
 U57aa: 39629d080240                MOVETOCREG_BTS_DSZ64(0x00000004, 0x29d)
 
 U57ac: 0008ee03f008                tmp15:= ZEROEXT_DSZ32(0x000000ee)
@@ -28399,7 +28401,7 @@ U57e0: 003640121233                rcx:= CMOVCC_DSZ32_CONDB(tmp3, 0x00000440)
            0197ec00                SEQW GOTO uend
 ------------------------------------------------------------------------------------
 U57e1: 000ca20fd2c8                tmp13:= SAVEUIP(0x00, U63a2)
-U57e2: 2d0bd043800a                tmp8:= PORTIN_DSZ32_ASZ16_SC1(0x000050d0)
+U57e2: 2d0bd043800a                tmp8:= PORTIN_DSZ32_ASZ16_SC1(0x50d0)
 
 U57e4: 0ea51e036038                tmp6:= LDPPHYSTICKLE_DSZ16_ASZ64_SC1(tmp8, 0x0000001e)
 U57e5: 0e2504034038    LFNCEWAIT-> tmp4:= LDPPHYSTICKLE_DSZ32_ASZ64_SC1(tmp8, 0x00000004)
@@ -28649,7 +28651,7 @@ U58a9: 286aaaa10230                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000002, U58aa
 U58aa: 10621d0b0240                tmp0:= MOVEFROMCREG_DSZ64(0x21d, 32)
 
 U58ac: 186b852c0230                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000000, U2b85)
-U58ad: 2d0b10034008    LFNCEMARK-> tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x00000010)
+U58ad: 2d0b10034008    LFNCEMARK-> tmp4:= PORTIN_DSZ32_ASZ16_SC1(0x0010)
            049b4140                SEQW GOTO U1b41
 ------------------------------------------------------------------------------------
 U58ae: 003240020231                rax:= SELECTCC_DSZ32_CONDB(tmp1, 0x00000040)
@@ -28688,10 +28690,10 @@ U58c6: 022200037031                tmp7:= unk_222(tmp1)
 
 U58c8: 00a100037df7                tmp7:= CONCAT_DSZ16(tmp7, tmp7)
 U58c9: 00fc00037df0                tmp7:= unk_0fc(tmp0, tmp7)
-U58ca: 2d0f18037008                PORTOUT_DSZ32_ASZ16_SC1(0x00000018, tmp7)
+U58ca: 2d0f18037008                PORTOUT_DSZ32_ASZ16_SC1(0x0018, tmp7)
 
-U58cc: 2d0f64031008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x00000064, tmp1)
-U58cd: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x0000004c, 0x00000000)
+U58cc: 2d0f64031008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x0064, tmp1)
+U58cd: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x004c, 0x00000000)
            084e8189                SEQW URET0
 ------------------------------------------------------------------------------------
 U58ce: 00092b230009                tmp0:= MOVE_DSZ32(0x0000282b)
@@ -28812,7 +28814,7 @@ U5922: 304200000832     SYNCFULL-> MOVETOCREG_DSZ64(tmp2, rax)
            0943a489                SEQW GOTO U43a4
 ------------------------------------------------------------------------------------
 
-U5924: 2d0ba0022008                rdx:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U5924: 2d0ba0022008                rdx:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
            01db5400                SEQW GOTO U5b54
 ------------------------------------------------------------------------------------
 U5925: 000401031c48                tmp1:= AND_DSZ32(0x00000001, tmp1)
@@ -29270,8 +29272,8 @@ U5a7d: 002508032235                tmp2:= SHR_DSZ32(tmp5, 0x00000008)
 U5a7e: 00047f032c88                tmp2:= AND_DSZ32(0x0000007f, tmp2)
 
 U5a80: 000100031cb1                tmp1:= OR_DSZ32(tmp1, tmp2)
-U5a81: 2dcfc3031008                PORTOUT_DSZ8_ASZ16_SC1(0x000000c3, tmp1)
-U5a82: 2dcfbf1b100a                PORTOUT_DSZ8_ASZ16_SC1(0x000046bf, tmp1)
+U5a81: 2dcfc3031008                PORTOUT_DSZ8_ASZ16_SC1(0x00c3, tmp1)
+U5a82: 2dcfbf1b100a                PORTOUT_DSZ8_ASZ16_SC1(0x46bf, tmp1)
            01b20880                SEQW GOTO U3208
 ------------------------------------------------------------------------------------
 
@@ -29707,9 +29709,9 @@ U5bd4: 021e02000200                SIGEVENT(0x00000002)
            04879d00                SEQW GOTO U079d
 ------------------------------------------------------------------------------------
 U5bd5: 1902db480200    LFNCEMARK-> MOVETOCREG_OR_DSZ64(0x00000001, 0x2db)
-U5bd6: 2d0bd403b008                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x000000d4)
+U5bd6: 2d0bd403b008                tmp11:= PORTIN_DSZ32_ASZ16_SC1(0x00d4)
 
-U5bd8: 2d4bd803a008                tmp10:= PORTIN_DSZ64_ASZ16_SC1(0x000000d8)
+U5bd8: 2d4bd803a008                tmp10:= PORTIN_DSZ64_ASZ16_SC1(0x00d8)
 U5bd9: 086be60c03fb                BTUJNB_DIRECT_NOTTAKEN(tmp11, 0x0000001c, U03e6)
 U5bda: 0004ff03cec8                tmp12:= AND_DSZ32(0x000000ff, tmp11)
 
@@ -29733,7 +29735,7 @@ U5be9: 004708030c08                tmp0:= NOTAND_DSZ64(0x00000008, tmp0)
 U5bea: 004353080230                WRITEURAM(tmp0, 0x0053, 32)
 
 U5bec: 00638d034200                tmp4:= READURAM(0x008d, 64)
-U5bed: 2d0f10034008                PORTOUT_DSZ32_ASZ16_SC1(0x00000010, tmp4)
+U5bed: 2d0f10034008                PORTOUT_DSZ32_ASZ16_SC1(0x0010, tmp4)
 U5bee: 000d10880000                SAVEUIP_REGOVR(0x01, U5bf0, 0x0210)
            01a81d80                SEQW GOTO U281d
 
@@ -29783,7 +29785,7 @@ U5c0e: 000a00880200                TESTUSTATE(UCODE, !0x0200)
            01dc1180                ? SEQW GOTO U5c11
 
 U5c10: 004680435d48                tmp5:= XOR_DSZ64(0x00001080, tmp5)
-U5c11: 2d0bc0031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000000c0)
+U5c11: 2d0bc0031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00c0)
 U5c12: 000426072c50                tmp2:= AND_DSZ32(0x00800002, tmp1)
 
 U5c14: 00640f032232                tmp2:= SHL_DSZ64(tmp2, 0x0000000f)
@@ -29806,11 +29808,11 @@ U5c22: 000101032cb1         ROVR<- tmp2:= OR_DSZ32(tmp1, tmp2)
            0182ba9e                SEQW SAVEUIP1 U5c24
                                    SEQW GOTO U02ba
 
-U5c24: 2d8bc0031008                tmp1:= PORTIN_DSZ16_ASZ16_SC1(0x000000c0)
+U5c24: 2d8bc0031008                tmp1:= PORTIN_DSZ16_ASZ16_SC1(0x00c0)
 U5c25: 000722031c50                tmp1:= NOTAND_DSZ32(0x00007c04, tmp1)
 U5c26: 000100031c72                tmp1:= OR_DSZ32(tmp2, tmp1)
 
-U5c28: 2d8fc0031008                PORTOUT_DSZ16_ASZ16_SC1(0x000000c0, tmp1)
+U5c28: 2d8fc0031008                PORTOUT_DSZ16_ASZ16_SC1(0x00c0, tmp1)
            01d6f800                SEQW GOTO U56f8
 ------------------------------------------------------------------------------------
 U5c29: 013180032232                tmp2:= SELECTCC_DSZ32_CONDNZ(tmp2, 0x00000080)
@@ -29867,8 +29869,8 @@ U5c51: 004307080230                WRITEURAM(tmp0, 0x0007, 32)
 U5c52: 000801032008                tmp2:= ZEROEXT_DSZ32(0x00000001)
 
 U5c54: 000d32800000                SAVEUIP_REGOVR(0x01, U5c55, 0x0032)
-           0187b500                SEQW GOTO U07b5
-U5c55: 2d0ba0032008                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+           0187b500                SEQW GOTO send_op_pcu_mailbox
+U5c55: 2d0ba0032008                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 U5c56: 000500030c32                tmp0:= SUB_DSZ32(tmp2, tmp0)
 
 U5c58: 013100031c70                tmp1:= SELECTCC_DSZ32_CONDNZ(tmp0, tmp1)
@@ -29886,16 +29888,18 @@ U5c60: 00083403f008                tmp15:= ZEROEXT_DSZ32(0x00000034)
 U5c61: 000828033008                tmp3:= ZEROEXT_DSZ32(0x00000028)
            01e43640                SEQW GOTO U6436
 ------------------------------------------------------------------------------------
-U5c62: 2d0ba4016008                tmpv2:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+
+send_op_data_pcu_mailbox:
+U5c62: 2d0ba4016008                tmpv2:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U5c64: 286b65f103d6     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmpv2, 0x0000001f, U5c65)
-           085c6200                SEQW GOTO U5c62
+           085c6200                SEQW GOTO send_op_data_pcu_mailbox
 ------------------------------------------------------------------------------------
-U5c65: 2d0fa0015008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmpv1)
+U5c65: 2d0fa0015008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmpv1)
 U5c66: 00151f014214                tmpv0:= BTS_DSZ32(tmpv0, 0x0000001f)
 
-U5c68: 2d0fa4014008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmpv0)
-U5c69: 2d0ba4015008     SYNCFULL-> tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U5c68: 2d0fa4014008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmpv0)
+U5c69: 2d0ba4015008     SYNCFULL-> tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U5c6a: 286bbef003d5                BTUJNB_DIRECT_NOTTAKEN(tmpv1, 0x0000001f, uret1)
            08dc6980                SEQW GOTO U5c69
 ------------------------------------------------------------------------------------
@@ -29989,9 +29993,9 @@ U5cb0: 2a62c3d8023f                MOVETOCREG_BTR_DSZ64(tmp15, 0x00000003, 0x6c3
 U5cb1: 00620507f200                tmp15:= MOVEFROMCREG_DSZ64(0x105)
 U5cb2: 09020504027f    LFNCEWAIT-> MOVETOCREG_OR_DSZ64(tmp15, 0x00000004, 0x105)
 
-U5cb4: 2d0b1833f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00004c18)
+U5cb4: 2d0b1833f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x4c18)
 U5cb5: 00010103ffc8                tmp15:= OR_DSZ32(0x00000001, tmp15)
-U5cb6: 2d0f1833f00a     SYNCMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x00004c18, tmp15)
+U5cb6: 2d0f1833f00a     SYNCMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x4c18, tmp15)
            0d0000ca                SEQW URET0
 ------------------------------------------------------------------------------------
 
@@ -30049,7 +30053,7 @@ U5cdd: 00620507f200                tmp15:= MOVEFROMCREG_DSZ64(0x105)
 U5cde: 00470403ffca                tmp15:= NOTAND_DSZ64(0x00004004, tmp15)
 
 U5ce0: 00420504023f    LFNCEWAIT-> MOVETOCREG_DSZ64(tmp15, 0x105)
-U5ce1: 2d0b1833f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00004c18)
+U5ce1: 2d0b1833f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x4c18)
 U5ce2: 00070103ffc8                tmp15:= NOTAND_DSZ32(0x00000001, tmp15)
            025cb680                SEQW GOTO U5cb6
 ------------------------------------------------------------------------------------
@@ -30103,7 +30107,7 @@ U5d04: 204308000231    LFNCEWAIT-> WRITEURAM(tmp1, 0x0008, 64)
 U5d05: 006377030200                tmp0:= READURAM(0x0077, 64)
 U5d06: 286b12b50630                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000022, U5d12)
 
-U5d08: 2d0bdc43000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000050dc)
+U5d08: 2d0bdc43000a                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x50dc)
 U5d09: 286a12350230                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000000, U5d12)
 U5d0a: 006275170200                tmp0:= MOVEFROMCREG_DSZ64(PMH_CR_EMRR_MASK)
 
@@ -30479,11 +30483,11 @@ U5e31: 090201100d35   LFNCEWTMRK-> MOVETOCREG_OR_DSZ64(tmp5, tmp4, 0x401)
 U5e32: 000d0e800000                SAVEUIP_REGOVR(0x01, U5e34, 0x000e)
            0682ba89                SEQW GOTO U02ba
 
-U5e34: 2d0b085fe00c     SYNCWAIT-> tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x00009708)
+U5e34: 2d0b085fe00c     SYNCWAIT-> tmp14:= PORTIN_DSZ32_ASZ16_SC1(0x9708)
 U5e35: 00150003e23e                tmp14:= BTS_DSZ32(tmp14, 0x00000000)
-U5e36: 2d0f085fe00c                PORTOUT_DSZ32_ASZ16_SC1(0x00009708, tmp14)
+U5e36: 2d0f085fe00c                PORTOUT_DSZ32_ASZ16_SC1(0x9708, tmp14)
 
-U5e38: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U5e38: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 U5e39: 00080b030008    LFNCEMARK-> tmp0:= ZEROEXT_DSZ32(0x0000000b)
            04879e40                SEQW GOTO U079e
 ------------------------------------------------------------------------------------
@@ -30496,9 +30500,9 @@ U5e3e: 006274170200                tmp0:= MOVEFROMCREG_DSZ64(PMH_CR_EMRR_BASE)
 
 U5e40: 0047ff3f0c08                tmp0:= NOTAND_DSZ64(0x00000fff, tmp0)
 U5e41: 006275171200                tmp1:= MOVEFROMCREG_DSZ64(PMH_CR_EMRR_MASK)
-U5e42: 2d4bd833200a                tmp2:= PORTIN_DSZ64_ASZ16_SC1(0x00004cd8)
+U5e42: 2d4bd833200a                tmp2:= PORTIN_DSZ64_ASZ16_SC1(0x4cd8)
 
-U5e44: 2d4be033300a                tmp3:= PORTIN_DSZ64_ASZ16_SC1(0x00004ce0)
+U5e44: 2d4be033300a                tmp3:= PORTIN_DSZ64_ASZ16_SC1(0x4ce0)
 U5e45: 0047000b3cc8                tmp3:= NOTAND_DSZ64(0x00000200, tmp3)
            0187258d                SEQW URET1
 ------------------------------------------------------------------------------------
@@ -30509,7 +30513,7 @@ U5e48: 0062bb1f0200                tmp0:= MOVEFROMCREG_DSZ64(0x7bb)
 U5e49: 2962bb1c02b0                MOVETOCREG_BTS_DSZ64(tmp0, 0x00000008, 0x7bb)
 U5e4a: 3042f1080240                MOVETOCREG_DSZ64(0x00000000, 0x2f1, 32)
 
-U5e4c: 2d4f2018000a                PORTOUT_DSZ64_ASZ16_SC1(0x00004620, 0x00000000)
+U5e4c: 2d4f2018000a                PORTOUT_DSZ64_ASZ16_SC1(0x4620, 0x00000000)
 U5e4d: 000c65bc0200                SAVEUIP(0x01, U0f65)
            01a17440                SEQW GOTO U2174
 ------------------------------------------------------------------------------------
@@ -30521,12 +30525,12 @@ U5e50: 286abe300214                BTUJB_DIRECT_NOTTAKEN(tmpv0, 0x00000000, uret
 U5e51: 106208094240                tmpv0:= MOVEFROMCREG_DSZ64(0x208, 32)
 U5e52: 286a59390214                BTUJB_DIRECT_NOTTAKEN(tmpv0, 0x00000000, U5e59)
 
-U5e54: 2d0bd841400a                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U5e54: 2d0bd841400a                tmpv0:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U5e55: 001512014214                tmpv0:= BTS_DSZ32(tmpv0, 0x00000012)
-U5e56: 2d0fd841400a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d8, tmpv0)
+U5e56: 2d0fd841400a                PORTOUT_DSZ32_ASZ16_SC1(0x50d8, tmpv0)
 
 U5e58: 390208c80200                MOVETOCREG_OR_DSZ64(0x00000003, 0x208)
-U5e59: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U5e59: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
            0186c640                SEQW GOTO uret1
 ------------------------------------------------------------------------------------
 U5e5a: 00010003df7f                tmp13:= OR_DSZ32(tmp15, tmp13)
@@ -30551,10 +30555,10 @@ fit_process_error:
 U5e68: 20430e00023b                WRITEURAM(tmp11, 0x000e, 64)
            01e0b810                SEQW SAVEUIP0 U5e69
                                    SEQW GOTO U60b8
-U5e69: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x000000c0)
+U5e69: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00c0)
 U5e6a: 001603031231                tmp1:= BTR_DSZ32(tmp1, 0x00000003)
 
-U5e6c: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x000000c0, tmp1)
+U5e6c: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x00c0, tmp1)
            01e5f200                SEQW GOTO U65f2
 ------------------------------------------------------------------------------------
 U5e6d: 000407033cc8                tmp3:= AND_DSZ32(0x00000007, tmp3)
@@ -30713,12 +30717,12 @@ U5ee6: 015000000e36                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp6, tmp8)
 U5ee8: 000000000000                NOP
            018bc914                SEQW SAVEUIP1 U5ee9
                                    SEQW GOTO write_port_4c
-U5ee9: 2d0b18037008                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x00000018)
+U5ee9: 2d0b18037008                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x0018)
 U5eea: 000501037dc8                tmp7:= SUB_DSZ32(0x00000001, tmp7)
 
 U5eec: 000500037df5                tmp7:= SUB_DSZ32(tmp5, tmp7)
-U5eed: 2d0f18037008                PORTOUT_DSZ32_ASZ16_SC1(0x00000018, tmp7)
-U5eee: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x0000004c, 0x00000000)
+U5eed: 2d0f18037008                PORTOUT_DSZ32_ASZ16_SC1(0x0018, tmp7)
+U5eee: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x004c, 0x00000000)
            01b04e80                SEQW GOTO uret0
 ------------------------------------------------------------------------------------
 
@@ -31073,11 +31077,11 @@ U600a: 025e00240cc0LFNCEMARK->MSSTOP-> unk_25e(tmp3)
 U600c: 000921000000         ROVR<- MOVE_DSZ32(0x00000000)
            0182ba1c                SEQW SAVEUIP1 U600d
                                    SEQW GOTO U02ba
-U600d: 2d0bdc43100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000050dc)
+U600d: 2d0bdc43100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x50dc)
 U600e: 000101031c48                tmp1:= OR_DSZ32(0x00000001, tmp1)
 
-U6010: 2d0fdc43100a                PORTOUT_DSZ32_ASZ16_SC1(0x000050dc, tmp1)
-U6011: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U6010: 2d0fdc43100a                PORTOUT_DSZ32_ASZ16_SC1(0x50dc, tmp1)
+U6011: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 U6012: 00635c03f200                tmp15:= READURAM(0x005c, 64)
 
 U6014: 086a9e1c02bf                BTUJB_DIRECT_NOTTAKEN(tmp15, 0x00000008, U079e)
@@ -31096,9 +31100,9 @@ U601e: 206353030200                tmp0:= READURAM(0x0053, 64)
 
 U6020: 286a40a00230                BTUJB_DIRECT_NOTTAKEN(tmp0, 0x00000002, U1840)
 U6021: 000802033008                tmp3:= ZEROEXT_DSZ32(0x00000002)
-U6022: 2d0f50033008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x00000050, tmp3)
+U6022: 2d0f50033008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x0050, tmp3)
 
-U6024: 2d0b50033008                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x00000050)
+U6024: 2d0b50033008                tmp3:= PORTIN_DSZ32_ASZ16_SC1(0x0050)
 U6025: 286a40200233                BTUJB_DIRECT_NOTTAKEN(tmp3, 0x00000000, U1840)
 U6026: 1062dc0b3240                tmp3:= MOVEFROMCREG_DSZ64(0x2dc, 32)
 
@@ -31178,10 +31182,10 @@ U6062: 000100031c72                tmp1:= OR_DSZ32(tmp2, tmp1)
 
 U6064: 386b008802b5                BTUJNB_DIRECT_NOTTAKEN(tmp5, 0x0000000a, U3200)
 U6065: 0041000b1d48                tmp1:= OR_DSZ64(0x00000200, tmp5)
-U6066: 2d4fe033100a                PORTOUT_DSZ64_ASZ16_SC1(0x00004ce0, tmp1)
+U6066: 2d4fe033100a                PORTOUT_DSZ64_ASZ16_SC1(0x4ce0, tmp1)
 
 U6068: 00627417e200                tmp14:= MOVEFROMCREG_DSZ64(PMH_CR_EMRR_BASE)
-U6069: 2d4fd833e00a     SYNCFULL-> PORTOUT_DSZ64_ASZ16_SC1(0x00004cd8, tmp14)
+U6069: 2d4fd833e00a     SYNCFULL-> PORTOUT_DSZ64_ASZ16_SC1(0x4cd8, tmp14)
            08b20040                SEQW GOTO U3200
 ------------------------------------------------------------------------------------
 U606a: 00635c033200                tmp3:= READURAM(0x005c, 64)
@@ -31234,10 +31238,10 @@ U608a: 00010703bf08                tmp11:= OR_DSZ32(0x00000007, tmp12)
 U608c: 286a6839063a                BTUJB_DIRECT_NOTTAKEN(tmp10, 0x00000020, fit_process_error)
            01e0b810                SEQW SAVEUIP0 U608d
                                    SEQW GOTO U60b8
-U608d: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x000000c0)
+U608d: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00c0)
 U608e: 001603031231                tmp1:= BTR_DSZ32(tmp1, 0x00000003)
 
-U6090: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x000000c0, tmp1)
+U6090: 2dcfc0031008                PORTOUT_DSZ8_ASZ16_SC1(0x00c0, tmp1)
 U6091: 000030034e88                tmp4:= ADD_DSZ32(0x00000030, tmp10)
 U6092: 000c7cc80240                SAVEUIP(0x01, apply_ucode_patch)
 
@@ -31282,15 +31286,15 @@ U60b0: 022200037031                tmp7:= unk_222(tmp1)
 U60b1: 00a100037df7                tmp7:= CONCAT_DSZ16(tmp7, tmp7)
 U60b2: 00fc00037df0                tmp7:= unk_0fc(tmp0, tmp7)
 
-U60b4: 2d0f18037008                PORTOUT_DSZ32_ASZ16_SC1(0x00000018, tmp7)
-U60b5: 2d0f64031008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x00000064, tmp1)
-U60b6: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x0000004c, 0x00000000)
+U60b4: 2d0f18037008                PORTOUT_DSZ32_ASZ16_SC1(0x0018, tmp7)
+U60b5: 2d0f64031008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x0064, tmp1)
+U60b6: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x004c, 0x00000000)
 
 U60b8: 000000000000                NOP
            018bc914                SEQW SAVEUIP1 U60b9
                                    SEQW GOTO write_port_4c
-U60b9: 2d0b18037008                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x00000018)
-U60ba: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x0000004c, 0x00000000)
+U60b9: 2d0b18037008                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x0018)
+U60ba: 2d0f4c000008                PORTOUT_DSZ32_ASZ16_SC1(0x004c, 0x00000000)
 
 U60bc: 0004ff031dc8                tmp1:= AND_DSZ32(0x000000ff, tmp7)
 U60bd: 01504e400271                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp1, uret0)
@@ -31787,19 +31791,19 @@ U625e: 00450803ae88                tmp10:= SUB_DSZ64(0x00000008, tmp10)
 U6260: 01600103c23c                tmp12:= SUBR_DSZ64(tmp12, 0x00000001)
            01e25c00                SEQW GOTO U625c
 ------------------------------------------------------------------------------------
-U6261: 2d4be033300a                tmp3:= PORTIN_DSZ64_ASZ16_SC1(0x00004ce0)
+U6261: 2d4be033300a                tmp3:= PORTIN_DSZ64_ASZ16_SC1(0x4ce0)
 U6262: 004100233cc8                tmp3:= OR_DSZ64(0x00000800, tmp3)
 
-U6264: 2d4fe033300a                PORTOUT_DSZ64_ASZ16_SC1(0x00004ce0, tmp3)
+U6264: 2d4fe033300a                PORTOUT_DSZ64_ASZ16_SC1(0x4ce0, tmp3)
 U6265: 186ad2410332                BTUJB_DIRECT_NOTTAKEN(tmp2, 0x00000011, U60d2)
 U6266: 000801031008                tmp1:= ZEROEXT_DSZ32(0x00000001)
 
-U6268: 2dcf707b1008                PORTOUT_DSZ8_ASZ16_SC1(0x00001e70, tmp1)
-U6269: 2dcb707b1008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00001e70)
+U6268: 2dcf707b1008                PORTOUT_DSZ8_ASZ16_SC1(0x1e70, tmp1)
+U6269: 2dcb707b1008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x1e70)
 U626a: 186a69090231                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000000, U6269)
 
 U626c: 000801031008                tmp1:= ZEROEXT_DSZ32(0x00000001)
-U626d: 2dcf747b1008     SYNCFULL-> PORTOUT_DSZ8_ASZ16_SC1(0x00001e74, tmp1)
+U626d: 2dcf747b1008     SYNCFULL-> PORTOUT_DSZ8_ASZ16_SC1(0x1e74, tmp1)
            08e0d240                SEQW GOTO U60d2
 ------------------------------------------------------------------------------------
 U626e: 00635703c200                tmp12:= READURAM(0x0057, 64)
@@ -31925,22 +31929,22 @@ U62d2: 000801022008                rdx:= ZEROEXT_DSZ32(0x00000001)
 ------------------------------------------------------------------------------------
 
 U62d4: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U62d5: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x0000005c, tmp15)
-U62d6: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x0000005c)
+U62d5: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x005c, tmp15)
+U62d6: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x005c)
 
 U62d8: 186bd609023f                BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x00000000, U62d6)
-U62d9: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U62d9: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U62da: 186bdcc903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U62dc)
            0962d980                SEQW GOTO U62d9
 ------------------------------------------------------------------------------------
 
-U62dc: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
-U62dd: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U62dc: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
+U62dd: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U62de: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U62e0: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U62e1: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U62e2: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U62e1: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U62e2: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U62e4: 186be5c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U62e5)
            0862e200                SEQW GOTO U62e2
@@ -31952,23 +31956,23 @@ U62e8: 00a1c003ffc8                tmp15:= CONCAT_DSZ16(0x000000c0, tmp15)
            01f20d00                SEQW GOTO U720d
 ------------------------------------------------------------------------------------
 U62e9: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U62ea: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x0000005c, tmp15)
+U62ea: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x005c, tmp15)
 
-U62ec: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x0000005c)
+U62ec: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x005c)
 U62ed: 186bec09023f                BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x00000000, U62ec)
-U62ee: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U62ee: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U62f0: 186bf1c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U62f1)
            0862ee00                SEQW GOTO U62ee
 ------------------------------------------------------------------------------------
-U62f1: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
-U62f2: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U62f1: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
+U62f2: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U62f4: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U62f5: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U62f6: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U62f6: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U62f8: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U62f8: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U62f9: 186bfac903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U62fa)
            08e2f840                SEQW GOTO U62f8
 ------------------------------------------------------------------------------------
@@ -32169,15 +32173,15 @@ U63a4: 000400036d8e    LFNCEMARK-> tmp6:= AND_DSZ32(0x0000c000, tmp6)
 U63a5: 0151a60c02f6                UJMPCC_DIRECT_NOTTAKEN_CONDNZ(tmp6, U63a6)
            0457e440                SEQW GOTO U57e4
 ------------------------------------------------------------------------------------
-U63a6: 2d0bcc43700a                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x000050cc)
+U63a6: 2d0bcc43700a                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x50cc)
 
 U63a8: 000400036d8c                tmp6:= AND_DSZ32(0x00008000, tmp6)
 U63a9: 017e00038db8                tmp8:= MOVEMERGEFLGS_DSZ64(tmp8, tmp6)
 U63aa: 013400038df8                tmp8:= CMOVCC_DSZ32_CONDZ(tmp8, tmp7)
 
-U63ac: 2d0fd043800a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d0, tmp8)
+U63ac: 2d0fd043800a                PORTOUT_DSZ32_ASZ16_SC1(0x50d0, tmp8)
 U63ad: 00151e031200                tmp1:= BTS_DSZ32(0x00000000, 0x0000001e)
-U63ae: 2d0fc843100a                PORTOUT_DSZ32_ASZ16_SC1(0x000050c8, tmp1)
+U63ae: 2d0fc843100a                PORTOUT_DSZ32_ASZ16_SC1(0x50c8, tmp1)
            01d50280                SEQW GOTO U5502
 ------------------------------------------------------------------------------------
 
@@ -32437,7 +32441,7 @@ U6491: 186a69dc02f1                BTUJB_DIRECT_NOTTAKEN(tmp1, 0x0000000f, gener
 U6492: 000a00200200                TESTUSTATE(UCODE, 0x0800)
            01a76980                ? SEQW GOTO generate_#UD
 
-U6494: 2d0b3c031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000003c)
+U6494: 2d0b3c031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x003c)
 U6495: 00632003f200                tmp15:= READURAM(0x0020, 64)
 U6496: 186b691c0ff1                BTUJNB_DIRECT_NOTTAKEN(tmp1, tmp15, generate_#UD)
 
@@ -32860,7 +32864,7 @@ U65fa: 286a4ef906b2                BTUJB_DIRECT_NOTTAKEN(tmp2, 0x0000002b, U5e4e
 
 U65fc: 000d02000000                SAVEUIP_REGOVR(0x00, U65fd, 0x0002)
            0182b200                SEQW GOTO U02b2
-U65fd: 2d0bd843200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U65fd: 2d0bd843200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 U65fe: 000474031c90                tmp1:= AND_DSZ32(0x00020000, tmp2)
 
 U6600: 00049a034c90                tmp4:= AND_DSZ32(0x00040000, tmp2)
@@ -33125,11 +33129,11 @@ U66e6: 002401032c88                tmp2:= SHL_DSZ32(0x00000001, tmp2)
 U66e8: 000900031000         ROVR<- tmp1:= MOVE_DSZ32(0x00000000)
            0182ba1c                SEQW SAVEUIP1 U66e9
                                    SEQW GOTO U02ba
-U66e9: 2d0b04030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00000004)
+U66e9: 2d0b04030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x0004)
 U66ea: 000100030c32                tmp0:= OR_DSZ32(tmp2, tmp0)
 
-U66ec: 2d0f04030008                PORTOUT_DSZ32_ASZ16_SC1(0x00000004, tmp0)
-U66ed: 2d0f40000008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U66ec: 2d0f04030008                PORTOUT_DSZ32_ASZ16_SC1(0x0004, tmp0)
+U66ed: 2d0f40000008     SYNCFULL-> PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
            08e38540                SEQW GOTO U6385
 ------------------------------------------------------------------------------------
 U66ee: 00050013ff88                tmp15:= SUB_DSZ32(0x00000400, tmp14)
@@ -33216,7 +33220,7 @@ U6738: 104209080240                MOVETOCREG_DSZ64(0x00000000, 0x209, 32)
 U6739: 190208880200                MOVETOCREG_OR_DSZ64(0x00000002, 0x208)
            01f66151                SEQW SAVEUIP0 U673a
                                    SEQW GOTO U7661
-U673a: 2dcbd843000a                tmp0:= PORTIN_DSZ8_ASZ16_SC1(0x000050d8)
+U673a: 2dcbd843000a                tmp0:= PORTIN_DSZ8_ASZ16_SC1(0x50d8)
 
 U673c: 00c520030230                tmp0:= SUB_DSZ8(tmp0, 0x00000020)
 U673d: 000c3e1c02c0                SAVEUIP(0x00, U673e)
@@ -33754,7 +33758,7 @@ U6919: 0004fe7f1c4b                tmp1:= AND_DSZ32(0x00007ffe, tmp1)
 U691a: 002501031231                tmp1:= SHR_DSZ32(tmp1, 0x00000001)
 
 U691c: 001600030c70                tmp0:= BTR_DSZ32(tmp0, tmp1)
-U691d: 2d0b04031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00000004)
+U691d: 2d0b04031008                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0004)
 U691e: 19282a250031                CMPUJZ_DIRECT_NOTTAKEN(tmp1, 0x00000000, U692a)
 
 U6920: 000e0f033200                tmp3:= WRMSLOOPCTRFBR(0x0000000f)
@@ -34130,13 +34134,13 @@ U6a68: 000100032cb0                tmp2:= OR_DSZ32(tmp0, tmp2)
 U6a69: 000100032d32                tmp2:= OR_DSZ32(tmp2, tmp4)
 U6a6a: 001511032232                tmp2:= BTS_DSZ32(tmp2, 0x00000011)
 
-U6a6c: 2d0fd843200a                PORTOUT_DSZ32_ASZ16_SC1(0x000050d8, tmp2)
-U6a6d: 2d4fb040000a                PORTOUT_DSZ64_ASZ16_SC1(0x000050b0, 0x00000000)
-U6a6e: 2d4fb840000a                PORTOUT_DSZ64_ASZ16_SC1(0x000050b8, 0x00000000)
+U6a6c: 2d0fd843200a                PORTOUT_DSZ32_ASZ16_SC1(0x50d8, tmp2)
+U6a6d: 2d4fb040000a                PORTOUT_DSZ64_ASZ16_SC1(0x50b0, 0x00000000)
+U6a6e: 2d4fb840000a                PORTOUT_DSZ64_ASZ16_SC1(0x50b8, 0x00000000)
 
-U6a70: 2d4fa040000a                PORTOUT_DSZ64_ASZ16_SC1(0x000050a0, 0x00000000)
-U6a71: 2d4fa840000a                PORTOUT_DSZ64_ASZ16_SC1(0x000050a8, 0x00000000)
-U6a72: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U6a70: 2d4fa040000a                PORTOUT_DSZ64_ASZ16_SC1(0x50a0, 0x00000000)
+U6a71: 2d4fa840000a                PORTOUT_DSZ64_ASZ16_SC1(0x50a8, 0x00000000)
+U6a72: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 
 U6a74: 00080f030008                tmp0:= ZEROEXT_DSZ32(0x0000000f)
            01e0aa10                SEQW SAVEUIP0 U6a75
@@ -34212,11 +34216,11 @@ U6ab0: 000433072c90                tmp2:= AND_DSZ32(0x00ff0000, tmp2)
 U6ab1: 00080e03b008                tmp11:= ZEROEXT_DSZ32(0x0000000e)
 U6ab2: 00437308023b                WRITEURAM(tmp11, 0x0073, 32)
 
-U6ab4: 2d0b0813000c                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00008408)
+U6ab4: 2d0b0813000c                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x8408)
 U6ab5: 0004590b0c10                tmp0:= AND_DSZ32(0xffff0180, tmp0)
 U6ab6: 000500071c08                tmp1:= SUB_DSZ32(0x00000100, tmp0)
 
-U6ab8: 2d0b0413000c                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00008404)
+U6ab8: 2d0b0413000c                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x8404)
 U6ab9: 0004f0070c10                tmp0:= AND_DSZ32(0x80000000, tmp0)
 U6aba: 000100031c70                tmp1:= OR_DSZ32(tmp0, tmp1)
 
@@ -34240,12 +34244,12 @@ U6ac8: 190208880200    LFNCEMARK-> MOVETOCREG_OR_DSZ64(0x00000002, 0x208)
 U6ac9: 1062850b0240                tmp0:= MOVEFROMCREG_DSZ64(CTAP_CR_DFX_CTL_STS, 32)
 U6aca: 3a6285c802b0                MOVETOCREG_BTR_DSZ64(tmp0, 0x0000000b, CTAP_CR_DFX_CTL_STS)
 
-U6acc: 2d0f10000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000010, 0x00000000)
-U6acd: 2d0f18000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000018, 0x00000000)
-U6ace: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x000000c0)
+U6acc: 2d0f10000008                PORTOUT_DSZ32_ASZ16_SC1(0x0010, 0x00000000)
+U6acd: 2d0f18000008                PORTOUT_DSZ32_ASZ16_SC1(0x0018, 0x00000000)
+U6ace: 2dcbc0031008                tmp1:= PORTIN_DSZ8_ASZ16_SC1(0x00c0)
 
 U6ad0: 001603031231                tmp1:= BTR_DSZ32(tmp1, 0x00000003)
-U6ad1: 2dcfc0031008    LFNCEWAIT-> PORTOUT_DSZ8_ASZ16_SC1(0x000000c0, tmp1)
+U6ad1: 2dcfc0031008    LFNCEWAIT-> PORTOUT_DSZ8_ASZ16_SC1(0x00c0, tmp1)
            029e6e40                SEQW GOTO U1e6e
 ------------------------------------------------------------------------------------
 U6ad2: 057e00039200                tmm1:= unk_57e(0x00000000)
@@ -34484,14 +34488,14 @@ U6ba1: 00012d0bf437                tmp15:= OR_DSZ32(tmp7, 0xff000000)
 U6ba2: 20430e00023f                WRITEURAM(tmp15, 0x000e, 64)
 
 U6ba4: 004e03036230                tmp6:= unk_04e(tmp0, 0x00000003)
-U6ba5: 2d0bd003f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000d0)
+U6ba5: 2d0bd003f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00d0)
 U6ba6: 00040073ffcb                tmp15:= AND_DSZ32(0x00007c00, tmp15)
 
 U6ba8: 01508618023f                UJMPCC_DIRECT_NOTTAKEN_CONDZ(tmp15, U0686)
 U6ba9: 000813134008                tmp4:= ZEROEXT_DSZ32(0x00000413)
-U6baa: 2d0f70034008                PORTOUT_DSZ32_ASZ16_SC1(0x00000070, tmp4)
+U6baa: 2d0f70034008                PORTOUT_DSZ32_ASZ16_SC1(0x0070, tmp4)
 
-U6bac: 2d0b74013008                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x00000074)
+U6bac: 2d0b74013008                tmp7:= PORTIN_DSZ32_ASZ16_SC1(0x0074)
 U6bad: 186bcd2d0213                BTUJNB_DIRECT_NOTTAKEN(tmp7, 0x00000000, U6bcd)
 U6bae: 002508013213                tmp7:= SHR_DSZ32(tmp7, 0x00000008)
 
@@ -34507,12 +34511,12 @@ U6bb5: 0004ff7f8e0b         ROVR<- tmp8:= AND_DSZ32(0x00007fff, tmp8)
                                    SEQW GOTO U02ba
 U6bb6: 002418038238                tmp8:= SHL_DSZ32(tmp8, 0x00000018)
 
-U6bb8: 2d4b00034c08                tmp4:= PORTIN_DSZ64_ASZ16_SC1(0x00000000, tmp0)
+U6bb8: 2d4b00034c08                tmp4:= PORTIN_DSZ64_ASZ16_SC1(0x0000, tmp0)
 U6bb9: 000440034d08                tmp4:= AND_DSZ32(0x00000040, tmp4)
 U6bba: 006436034234                tmp4:= SHL_DSZ64(tmp4, 0x00000036)
 
 U6bbc: 004100037df4                tmp7:= OR_DSZ64(tmp4, tmp7)
-U6bbd: 2d4b00034c48                tmp4:= PORTIN_DSZ64_ASZ16_SC1(0x00000000, tmp1)
+U6bbd: 2d4b00034c48                tmp4:= PORTIN_DSZ64_ASZ16_SC1(0x0000, tmp1)
 U6bbe: 00543f034234                tmp4:= BT_DSZ64(tmp4, 0x0000003f)
 
 U6bc0: 0021be07f010                tmp15:= CONCAT_DSZ32(0x40000000)
@@ -34523,11 +34527,11 @@ U6bc4: 00543d034234                tmp4:= BT_DSZ64(tmp4, 0x0000003d)
 U6bc5: 007600037df4                tmp7:= CMOVCC_DSZ64_CONDB(tmp4, tmp7)
 U6bc6: 004100037dff                tmp7:= OR_DSZ64(tmp15, tmp7)
 
-U6bc8: 2d4f00037c48                PORTOUT_DSZ64_ASZ16_SC1(0x00000000, tmp1, tmp7)
+U6bc8: 2d4f00037c48                PORTOUT_DSZ64_ASZ16_SC1(0x0000, tmp1, tmp7)
 U6bc9: 0052cc2c02f4                UJMPCC_DIRECT_NOTTAKEN_CONDB(tmp4, U6bcc)
-U6bca: 2d4f00038cc8                PORTOUT_DSZ64_ASZ16_SC1(0x00000000, tmp3, tmp8)
+U6bca: 2d4f00038cc8                PORTOUT_DSZ64_ASZ16_SC1(0x0000, tmp3, tmp8)
 
-U6bcc: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x00000040, 0x00000000)
+U6bcc: 2d0f40000008                PORTOUT_DSZ32_ASZ16_SC1(0x0040, 0x00000000)
 U6bcd: 004800030036     SYNCFULL-> tmp0:= ZEROEXT_DSZ64(tmp6)
            088000c9                SEQW URET0
 ------------------------------------------------------------------------------------
@@ -35193,7 +35197,7 @@ U6e3a: 0153687802b2                UJMPCC_DIRECT_NOTTAKEN_CONDNBE(tmp2, fit_proc
 
 U6e3c: 00151f039200                tmp9:= BTS_DSZ32(0x00000000, 0x0000001f)
 U6e3d: 00210103a008                tmp10:= CONCAT_DSZ32(0x00000001)
-U6e3e: 2d4b101f600a                tmp6:= PORTIN_DSZ64_ASZ16_SC1(0x00004710)
+U6e3e: 2d4b101f600a                tmp6:= PORTIN_DSZ64_ASZ16_SC1(0x4710)
 
 U6e40: 006532036236                tmp6:= SHR_DSZ64(tmp6, 0x00000032)
 U6e41: 000407036d88                tmp6:= AND_DSZ32(0x00000007, tmp6)
@@ -35476,7 +35480,7 @@ U6f3e: 1062850b2240                tmp2:= MOVEFROMCREG_DSZ64(CTAP_CR_DFX_CTL_STS
 
 U6f40: 186adc9c02b2                BTUJB_DIRECT_NOTTAKEN(tmp2, 0x0000000a, U27dc)
 U6f41: 00080903b008                tmp11:= ZEROEXT_DSZ32(0x00000009)
-U6f42: 2d4b101f200a                tmp2:= PORTIN_DSZ64_ASZ16_SC1(0x00004710)
+U6f42: 2d4b101f200a                tmp2:= PORTIN_DSZ64_ASZ16_SC1(0x4710)
 
 U6f44: 006532032232                tmp2:= SHR_DSZ64(tmp2, 0x00000032)
 U6f45: 000407032c88                tmp2:= AND_DSZ32(0x00000007, tmp2)
@@ -35502,11 +35506,11 @@ U6f56: 0043530b0230                tmp0:= WRITEURAM(tmp0, 0x0053, 32)
 
 U6f58: 1062850b0240                tmp0:= MOVEFROMCREG_DSZ64(CTAP_CR_DFX_CTL_STS, 32)
 U6f59: 186b5dbd02b0                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x0000000a, U6f5d)
-U6f5a: 2d0b0413000c                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00008404)
+U6f5a: 2d0b0413000c                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x8404)
 
 U6f5c: 186bdc1c0230                BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000000, U27dc)
 U6f5d: 00080b03b008                tmp11:= ZEROEXT_DSZ32(0x0000000b)
-U6f5e: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x000050d8)
+U6f5e: 2d0bd843100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x50d8)
 
 U6f60: 1062080b2240                tmp2:= MOVEFROMCREG_DSZ64(0x208, 32)
 U6f61: 002510030231                tmp0:= SHR_DSZ32(tmp1, 0x00000010)
@@ -35544,23 +35548,23 @@ U6f7c: 0040840b4f88                tmp4:= ADD_DSZ64(0x00000284, tmp14)
            019e8800                SEQW GOTO U1e88
 ------------------------------------------------------------------------------------
 U6f7d: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U6f7e: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x0000005c, tmp15)
+U6f7e: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x005c, tmp15)
 
-U6f80: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x0000005c)
+U6f80: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x005c)
 U6f81: 186b803d023f                BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x00000000, U6f80)
-U6f82: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U6f82: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U6f84: 186b85fd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6f85)
            086f8200                SEQW GOTO U6f82
 ------------------------------------------------------------------------------------
-U6f85: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
-U6f86: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U6f85: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
+U6f86: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U6f88: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U6f89: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U6f8a: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U6f8a: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U6f8c: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U6f8c: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U6f8d: 186b8efd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6f8e)
            08ef8c40                SEQW GOTO U6f8c
 ------------------------------------------------------------------------------------
@@ -35568,25 +35572,25 @@ U6f8e: 00653003f214                tmp15:= SHR_DSZ64(tmpv0, 0x00000030)
 
 U6f90: 00e10703ffc8                tmp15:= CONCAT_DSZ8(0x00000007, tmp15)
 U6f91: 00a1c007ffca                tmp15:= CONCAT_DSZ16(0x000041c0, tmp15)
-U6f92: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U6f92: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U6f94: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U6f95: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U6f96: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U6f96: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U6f98: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U6f98: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U6f99: 186b9afd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6f9a)
            08ef9840                SEQW GOTO U6f98
 ------------------------------------------------------------------------------------
-U6f9a: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U6f9a: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 
 U6f9c: 00001003ffc8                tmp15:= ADD_DSZ32(0x00000010, tmp15)
-U6f9d: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U6f9d: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U6f9e: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U6fa0: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U6fa1: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U6fa2: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U6fa1: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U6fa2: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U6fa4: 186ba5fd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6fa5)
            086fa200                SEQW GOTO U6fa2
@@ -35594,25 +35598,25 @@ U6fa4: 186ba5fd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6f
 U6fa5: 00480003f015                tmp15:= ZEROEXT_DSZ64(tmpv1)
 U6fa6: 00652003f23f                tmp15:= SHR_DSZ64(tmp15, 0x00000020)
 
-U6fa8: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U6fa8: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U6fa9: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U6faa: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
 
-U6fac: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U6fad: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U6fac: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U6fad: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U6fae: 186bb0fd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6fb0)
            096fad80                SEQW GOTO U6fad
 ------------------------------------------------------------------------------------
 
-U6fb0: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U6fb0: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 U6fb1: 00000403ffc8                tmp15:= ADD_DSZ32(0x00000004, tmp15)
-U6fb2: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U6fb2: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U6fb4: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U6fb5: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U6fb6: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U6fb6: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U6fb8: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U6fb8: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U6fb9: 186bbafd03ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U6fba)
            08efb840                SEQW GOTO U6fb8
 ------------------------------------------------------------------------------------
@@ -36131,22 +36135,22 @@ U7196: 000c44fc0280                SAVEUIP(0x01, U5f44)
 ------------------------------------------------------------------------------------
 
 U7198: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U7199: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x0000005c, tmp15)
-U719a: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x0000005c)
+U7199: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x005c, tmp15)
+U719a: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x005c)
 
 U719c: 386b9a05023f                BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x00000000, U719a)
-U719d: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U719d: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U719e: 386ba0c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71a0)
            09719d80                SEQW GOTO U719d
 ------------------------------------------------------------------------------------
 
-U71a0: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
-U71a1: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71a0: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
+U71a1: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U71a2: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U71a4: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U71a5: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U71a6: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71a5: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U71a6: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U71a8: 386ba9c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71a9)
            0871a600                SEQW GOTO U71a6
@@ -36155,25 +36159,25 @@ U71a9: 00653003f214                tmp15:= SHR_DSZ64(tmpv0, 0x00000030)
 U71aa: 00e10603ffc8                tmp15:= CONCAT_DSZ8(0x00000006, tmp15)
 
 U71ac: 00a1c003ffc8                tmp15:= CONCAT_DSZ16(0x000000c0, tmp15)
-U71ad: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71ad: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U71ae: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 
 U71b0: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U71b1: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U71b2: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71b1: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U71b2: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U71b4: 386bb5c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71b5)
            0871b200                SEQW GOTO U71b2
 ------------------------------------------------------------------------------------
-U71b5: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U71b5: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 U71b6: 00000403ffc8                tmp15:= ADD_DSZ32(0x00000004, tmp15)
 
-U71b8: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71b8: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U71b9: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U71ba: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
 
-U71bc: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U71bd: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71bc: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U71bd: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U71be: 386bc0c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71c0)
            0971bd80                SEQW GOTO U71bd
 ------------------------------------------------------------------------------------
@@ -36184,85 +36188,85 @@ U71c2: 002d1003f23f                tmp15:= ROR_DSZ32(tmp15, 0x00000010)
 
 U71c4: 0007ff03ffc8                tmp15:= NOTAND_DSZ32(0x000000ff, tmp15)
 U71c5: 00010f03ffc8                tmp15:= OR_DSZ32(0x0000000f, tmp15)
-U71c6: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71c6: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U71c8: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U71c9: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U71ca: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U71ca: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U71cc: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71cc: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U71cd: 386bcec503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71ce)
            08f1cc40                SEQW GOTO U71cc
 ------------------------------------------------------------------------------------
-U71ce: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U71ce: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 
 U71d0: 00000803ffc8                tmp15:= ADD_DSZ32(0x00000008, tmp15)
-U71d1: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71d1: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U71d2: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U71d4: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U71d5: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U71d6: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71d5: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U71d6: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U71d8: 386bd9c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71d9)
            0871d600                SEQW GOTO U71d6
 ------------------------------------------------------------------------------------
 U71d9: 00080003f014                tmp15:= ZEROEXT_DSZ32(tmpv0)
-U71da: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71da: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U71dc: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U71dd: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U71de: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U71de: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U71e0: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71e0: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U71e1: 386be2c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71e2)
            08f1e040                SEQW GOTO U71e0
 ------------------------------------------------------------------------------------
 U71e2: 00080003f000                tmp15:= ZEROEXT_DSZ32(0x00000000)
 
-U71e4: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71e4: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U71e5: 00081903f008                tmp15:= ZEROEXT_DSZ32(0x00000019)
 U71e6: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
 
-U71e8: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U71e9: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71e8: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U71e9: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U71ea: 386becc503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71ec)
            0971e980                SEQW GOTO U71e9
 ------------------------------------------------------------------------------------
 
-U71ec: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U71ec: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 U71ed: 00000c03ffc8                tmp15:= ADD_DSZ32(0x0000000c, tmp15)
-U71ee: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U71ee: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U71f0: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U71f1: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U71f2: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U71f2: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U71f4: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71f4: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U71f5: 386bf6c503ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U71f6)
            08f1f44e                SEQW GOTO U71f4
 ------------------------------------------------------------------------------------
-U71f6: 2d0ba0015008                tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U71f6: 2d0ba0015008                tmpv1:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
            08f1f44e                SEQW URET1
 ------------------------------------------------------------------------------------
 
 U71f8: 00080203f008                tmp15:= ZEROEXT_DSZ32(0x00000002)
-U71f9: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x0000005c, tmp15)
-U71fa: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x0000005c)
+U71f9: 2d0f5c03f008                PORTOUT_DSZ32_ASZ16_SC1(0x005c, tmp15)
+U71fa: 2d0b5c03f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x005c)
 
 U71fc: 386bfa05023f                BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x00000000, U71fa)
-U71fd: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U71fd: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U71fe: 386b00c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7200)
            0971fd80                SEQW GOTO U71fd
 ------------------------------------------------------------------------------------
 
-U7200: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
-U7201: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U7200: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
+U7201: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U7202: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U7204: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U7205: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U7206: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U7205: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U7206: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U7208: 386b09c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7209)
            08720600                SEQW GOTO U7206
@@ -36271,25 +36275,25 @@ U7209: 00653003f214                tmp15:= SHR_DSZ64(tmpv0, 0x00000030)
 U720a: 00e10703ffc8                tmp15:= CONCAT_DSZ8(0x00000007, tmp15)
 
 U720c: 00a1c003ffca                tmp15:= CONCAT_DSZ16(0x000040c0, tmp15)
-U720d: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U720d: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U720e: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 
 U7210: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U7211: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U7212: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U7211: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U7212: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U7214: 386b15c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7215)
            08721200                SEQW GOTO U7212
 ------------------------------------------------------------------------------------
-U7215: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U7215: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 U7216: 00000403ffc8                tmp15:= ADD_DSZ32(0x00000004, tmp15)
 
-U7218: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U7218: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U7219: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 U721a: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
 
-U721c: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U721d: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U721c: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U721d: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U721e: 386b20c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7220)
            09721d80                SEQW GOTO U721d
 ------------------------------------------------------------------------------------
@@ -36300,72 +36304,72 @@ U7222: 002d1003f23f                tmp15:= ROR_DSZ32(tmp15, 0x00000010)
 
 U7224: 0007ff03ffc8                tmp15:= NOTAND_DSZ32(0x000000ff, tmp15)
 U7225: 00010f03ffc8                tmp15:= OR_DSZ32(0x0000000f, tmp15)
-U7226: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U7226: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U7228: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U7229: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U722a: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U722a: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U722c: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U722c: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U722d: 386b2ec903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U722e)
            08f22c40                SEQW GOTO U722c
 ------------------------------------------------------------------------------------
-U722e: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U722e: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 
 U7230: 00000803ffc8                tmp15:= ADD_DSZ32(0x00000008, tmp15)
-U7231: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U7231: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U7232: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U7234: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U7235: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U7236: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U7235: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U7236: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U7238: 386b39c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7239)
            08723600                SEQW GOTO U7236
 ------------------------------------------------------------------------------------
 U7239: 00080003f014                tmp15:= ZEROEXT_DSZ32(tmpv0)
-U723a: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U723a: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U723c: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U723d: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U723e: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U723e: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U7240: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U7240: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U7241: 386b42c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7242)
            08f24040                SEQW GOTO U7240
 ------------------------------------------------------------------------------------
-U7242: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050c4)
+U7242: 2d0bc443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50c4)
 
 U7244: 00000c03ffc8                tmp15:= ADD_DSZ32(0x0000000c, tmp15)
-U7245: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U7245: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U7246: 00080503f008                tmp15:= ZEROEXT_DSZ32(0x00000005)
 
 U7248: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U7249: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U724a: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U7249: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U724a: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 
 U724c: 386b4dc903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U724d)
            08724a00                SEQW GOTO U724a
 ------------------------------------------------------------------------------------
 U724d: 00080003f015                tmp15:= ZEROEXT_DSZ32(tmpv1)
-U724e: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U724e: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 
 U7250: 00080703f008                tmp15:= ZEROEXT_DSZ32(0x00000007)
 U7251: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
-U7252: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
+U7252: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
 
-U7254: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U7254: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U7255: 386b56c903ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U7256)
            08f25440                SEQW GOTO U7254
 ------------------------------------------------------------------------------------
 U7256: 00080003f000                tmp15:= ZEROEXT_DSZ32(0x00000000)
 
-U7258: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a0, tmp15)
+U7258: 2d0fa003f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a0, tmp15)
 U7259: 00081903f008                tmp15:= ZEROEXT_DSZ32(0x00000019)
 U725a: 00151f03f23f                tmp15:= BTS_DSZ32(tmp15, 0x0000001f)
 
-U725c: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x000000a4, tmp15)
-U725d: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000000a4)
+U725c: 2d0fa403f008                PORTOUT_DSZ32_ASZ16_SC1(0x00a4, tmp15)
+U725d: 2d0ba403f008                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x00a4)
 U725e: 086b8ed803ff     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp15, 0x0000001f, U068e)
            09725d80                SEQW GOTO U725d
 ------------------------------------------------------------------------------------
@@ -37857,15 +37861,15 @@ U7776: 204293180200                MOVETOCREG_DSZ64(0x00000000, 0x693)
 
 U7778: 1062850b0240                tmp0:= MOVEFROMCREG_DSZ64(CTAP_CR_DFX_CTL_STS, 32)
 U7779: 1a6285cb02b0                tmp0:= MOVETOCREG_BTR_DSZ64(tmp0, 0x0000000b, CTAP_CR_DFX_CTL_STS)
-U777a: 2d0b401f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00004740)
+U777a: 2d0b401f100a                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x4740)
 
 U777c: 022200033031                tmp3:= unk_222(tmp1)
-U777d: 2d0b441f200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x00004744)
+U777d: 2d0b441f200a                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x4744)
 U777e: 022200032032                tmp2:= unk_222(tmp2)
 
 U7780: 00e100030cf2                tmp0:= CONCAT_DSZ8(tmp2, tmp3)
 U7781: 00a100030c31                tmp0:= CONCAT_DSZ16(tmp1, tmp0)
-U7782: 2d0b60032008                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x00000060)
+U7782: 2d0b60032008                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x0060)
 
 U7784: 002100030cb0                tmp0:= CONCAT_DSZ32(tmp0, tmp2)
 U7785: 002501032232                tmp2:= SHR_DSZ32(tmp2, 0x00000001)
@@ -37885,7 +37889,7 @@ U7792: 0902011c0c31                MOVETOCREG_OR_DSZ64(tmp1, tmp0, 0x701)
 
 U7794: 006335035200                tmp5:= READURAM(0x0035, 64)
 U7795: 386b9edd0235                BTUJNB_DIRECT_NOTTAKEN(tmp5, 0x00000003, U779e)
-U7796: 2d0b005f200c                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x00009700)
+U7796: 2d0b005f200c                tmp2:= PORTIN_DSZ32_ASZ16_SC1(0x9700)
 
 U7798: 00040c032c88    LFNCEMARK-> tmp2:= AND_DSZ32(0x0000000c, tmp2)
 U7799: 006424032232                tmp2:= SHL_DSZ64(tmp2, 0x00000024)
@@ -37950,7 +37954,7 @@ U77ca: 000d00000000                SAVEUIP_REGOVR(0x00, U77cc, 0x0000)
 
 U77cc: 00080903f008                tmp15:= ZEROEXT_DSZ32(0x00000009)
            090000d0                SEQW SAVEUIP0 U77cd
-U77cd: 2d0bc0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000000c0)
+U77cd: 2d0bc0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00c0)
 U77ce: 086b82c00230     SYNCFULL-> BTUJNB_DIRECT_NOTTAKEN(tmp0, 0x00000003, U0082)
 
 U77d0: 00080a03b008                tmp11:= ZEROEXT_DSZ32(0x0000000a)
@@ -37996,7 +38000,7 @@ U77f0: 0e75405f900d                tmp9:= LDSTGBUF_DSZ64_ASZ16_SC1(0x0000b740)
 U77f1: 004500039c39                tmp9:= SUB_DSZ64(tmp9, tmp0)
 U77f2: 0152b55402f9   LFNCEWTMRK-> UJMPCC_DIRECT_NOTTAKEN_CONDBE(tmp9, U75b5)
 
-U77f4: 2d4f581ba00a                PORTOUT_DSZ64_ASZ16_SC1(0x00004658, tmp10)
+U77f4: 2d4f581ba00a                PORTOUT_DSZ64_ASZ16_SC1(0x4658, tmp10)
 U77f5: 000d08800000                SAVEUIP_REGOVR(0x01, U77f6, 0x0008)
            01ab1540                SEQW GOTO lbsync_full
 U77f6: 09623a580240                MOVETOCREG_BTS_DSZ64(0x00000005, 0x63a)
@@ -38025,9 +38029,9 @@ U780a: 00520c6002f0    LFNCEMARK-> UJMPCC_DIRECT_NOTTAKEN_CONDB(tmp0, U780c)
            05781280                SEQW GOTO U7812
 ------------------------------------------------------------------------------------
 
-U780c: 2d0f4047000a                PORTOUT_DSZ32_ASZ16_SC1(0x00005140, tmp0)
+U780c: 2d0f4047000a                PORTOUT_DSZ32_ASZ16_SC1(0x5140, tmp0)
 U780d: 006520031230                tmp1:= SHR_DSZ64(tmp0, 0x00000020)
-U780e: 2d0f4447100a                PORTOUT_DSZ32_ASZ16_SC1(0x00005144, tmp1)
+U780e: 2d0f4447100a                PORTOUT_DSZ32_ASZ16_SC1(0x5144, tmp1)
 
 U7810: 1042d2080240                MOVETOCREG_DSZ64(0x00000000, 0x2d2, 32)
 U7811: 000d00800000                SAVEUIP_REGOVR(0x01, U7812, 0x0000)
@@ -38071,7 +38075,7 @@ U782e: 00630f030200                tmp0:= READURAM(0x000f, 64)
 
 U7830: 0007b9030c10                tmp0:= NOTAND_DSZ32(0x000f0000, tmp0)
 U7831: 001518030230                tmp0:= BTS_DSZ32(tmp0, 0x00000018)
-U7832: 2d0fb4030008                PORTOUT_DSZ32_ASZ16_SC1(0x000000b4, tmp0)
+U7832: 2d0fb4030008                PORTOUT_DSZ32_ASZ16_SC1(0x00b4, tmp0)
 
 U7834: 000a20800200                TESTUSTATE(UCODE, !0x0020)
            01dd5400                ? SEQW GOTO U5d54
@@ -39122,7 +39126,7 @@ U7c20: 815d65700280     SYNCFULL-> UJMP(U5c65)
 ------------------------------------------------------------------------------------
 U7c21: c00d09800000                SAVEUIP_REGOVR(0x01, U7c22, 0x0009)
            085c6640                SEQW GOTO U5c66
-U7c22: 2d0ba0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U7c22: 2d0ba0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
 U7c24: 41420b000f80                UFLOWCTRL(URET1, tmp14)
 U7c25: 415dca680280     SYNCFULL-> UJMP(U5aca)
@@ -39323,7 +39327,7 @@ U7cb4: 786a11310631     SYNCFULL-> BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000020, U7c11
 U7cb5: 9062f91f6240                tmp6:= MOVEFROMCREG_DSZ64(0x7f9, 32)
            28671440                SEQW GOTO U6714
 ------------------------------------------------------------------------------------
-U7cb6: 2d0be41e100a                rcx:= PORTIN_DSZ32_ASZ16_SC1(0x000047e4)
+U7cb6: 2d0be41e100a                rcx:= PORTIN_DSZ32_ASZ16_SC1(0x47e4)
 
 U7cb8: 406387030200                tmp0:= READURAM(0x0087, 64)
 U7cb9: 800000031c30                tmp1:= ADD_DSZ32(tmp0, tmp0)
@@ -39342,12 +39346,12 @@ U7cc0: 796289480200                MOVETOCREG_BTS_DSZ64(0x00000001, 0x289)
 U7cc1: 000000000000                NOP
 U7cc2: a0435c00023f                WRITEURAM(tmp15, 0x005c, 64)
 
-U7cc4: ed0be443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050e4)
+U7cc4: ed0be443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50e4)
 U7cc5: 0004001bffc8                tmp15:= AND_DSZ32(0x00000600, tmp15)
 U7cc6: 40250403f23f                tmp15:= SHR_DSZ32(tmp15, 0x00000004)
 
 U7cc8: c0010003fffe                tmp15:= OR_DSZ32(tmp14, tmp15)
-U7cc9: ad0fe443f00a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x000050e4, tmp15)
+U7cc9: ad0fe443f00a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x50e4, tmp15)
            1481598d                SEQW URET1
 ------------------------------------------------------------------------------------
 U7cca: 800155020c08                rax:= OR_DSZ32(0x00000055, tmp0)
@@ -39355,7 +39359,7 @@ U7cca: 800155020c08                rax:= OR_DSZ32(0x00000055, tmp0)
 ------------------------------------------------------------------------------------
 
 U7ccc: 40070103ffc8                tmp15:= NOTAND_DSZ32(0x00000001, tmp15)
-U7ccd: ed0f1833f00a                PORTOUT_DSZ32_ASZ16_SC1(0x00004c18, tmp15)
+U7ccd: ed0f1833f00a                PORTOUT_DSZ32_ASZ16_SC1(0x4c18, tmp15)
 U7cce: 41080003f010                tmp15:= READUIP_REGOVR(0x00)
 
 U7cd0: 20438e08023f                WRITEURAM(tmp15, 0x008e, 32)
@@ -39410,9 +39414,9 @@ U7cf6: 41312203d23d                tmp13:= SELECTCC_DSZ32_CONDNZ(tmp13, 0x000000
 
 U7cf8: 000100031c7d                tmp1:= OR_DSZ32(tmp13, tmp1)
 U7cf9: 404700035d71                tmp5:= NOTAND_DSZ64(tmp1, tmp5)
-U7cfa: 7d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U7cfa: 7d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
 
-U7cfc: 7d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x00000000, tmp2, tmp5)
+U7cfc: 7d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x0000, tmp2, tmp5)
            01d4a800                SEQW GOTO U54a8
 ------------------------------------------------------------------------------------
 U7cfd: 000000000000                NOP
@@ -39829,7 +39833,7 @@ U7e20: 815d65700280     SYNCFULL-> UJMP(U5c65)
 ------------------------------------------------------------------------------------
 U7e21: c00d09800000                SAVEUIP_REGOVR(0x01, U7e22, 0x0009)
            085c6640                SEQW GOTO U5c66
-U7e22: 2d0ba0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x000000a0)
+U7e22: 2d0ba0030008                tmp0:= PORTIN_DSZ32_ASZ16_SC1(0x00a0)
 
 U7e24: 41420b000f80                UFLOWCTRL(URET1, tmp14)
 U7e25: 415dca680280     SYNCFULL-> UJMP(U5aca)
@@ -40030,7 +40034,7 @@ U7eb4: 786a11310631     SYNCFULL-> BTUJB_DIRECT_NOTTAKEN(tmp1, 0x00000020, U7c11
 U7eb5: 9062f91f6240                tmp6:= MOVEFROMCREG_DSZ64(0x7f9, 32)
            28671440                SEQW GOTO U6714
 ------------------------------------------------------------------------------------
-U7eb6: 2d0be41e100a                rcx:= PORTIN_DSZ32_ASZ16_SC1(0x000047e4)
+U7eb6: 2d0be41e100a                rcx:= PORTIN_DSZ32_ASZ16_SC1(0x47e4)
 
 U7eb8: 406387030200                tmp0:= READURAM(0x0087, 64)
 U7eb9: 800000031c30                tmp1:= ADD_DSZ32(tmp0, tmp0)
@@ -40049,12 +40053,12 @@ U7ec0: 796289480200                MOVETOCREG_BTS_DSZ64(0x00000001, 0x289)
 U7ec1: 000000000000                NOP
 U7ec2: a0435c00023f                WRITEURAM(tmp15, 0x005c, 64)
 
-U7ec4: ed0be443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x000050e4)
+U7ec4: ed0be443f00a                tmp15:= PORTIN_DSZ32_ASZ16_SC1(0x50e4)
 U7ec5: 0004001bffc8                tmp15:= AND_DSZ32(0x00000600, tmp15)
 U7ec6: 40250403f23f                tmp15:= SHR_DSZ32(tmp15, 0x00000004)
 
 U7ec8: c0010003fffe                tmp15:= OR_DSZ32(tmp14, tmp15)
-U7ec9: ad0fe443f00a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x000050e4, tmp15)
+U7ec9: ad0fe443f00a    LFNCEMARK-> PORTOUT_DSZ32_ASZ16_SC1(0x50e4, tmp15)
            1481598d                SEQW URET1
 ------------------------------------------------------------------------------------
 U7eca: 800155020c08                rax:= OR_DSZ32(0x00000055, tmp0)
@@ -40062,7 +40066,7 @@ U7eca: 800155020c08                rax:= OR_DSZ32(0x00000055, tmp0)
 ------------------------------------------------------------------------------------
 
 U7ecc: 40070103ffc8                tmp15:= NOTAND_DSZ32(0x00000001, tmp15)
-U7ecd: ed0f1833f00a                PORTOUT_DSZ32_ASZ16_SC1(0x00004c18, tmp15)
+U7ecd: ed0f1833f00a                PORTOUT_DSZ32_ASZ16_SC1(0x4c18, tmp15)
 U7ece: 41080003f010                tmp15:= READUIP_REGOVR(0x00)
 
 U7ed0: 20438e08023f                WRITEURAM(tmp15, 0x008e, 32)
@@ -40117,9 +40121,9 @@ U7ef6: 41312203d23d                tmp13:= SELECTCC_DSZ32_CONDNZ(tmp13, 0x000000
 
 U7ef8: 000100031c7d                tmp1:= OR_DSZ32(tmp13, tmp1)
 U7ef9: 404700035d71                tmp5:= NOTAND_DSZ64(tmp1, tmp5)
-U7efa: 7d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x00000000, tmp2)
+U7efa: 7d0b00031c88                tmp1:= PORTIN_DSZ32_ASZ16_SC1(0x0000, tmp2)
 
-U7efc: 7d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x00000000, tmp2, tmp5)
+U7efc: 7d0f00035c88                PORTOUT_DSZ32_ASZ16_SC1(0x0000, tmp2, tmp5)
            01d4a800                SEQW GOTO U54a8
 ------------------------------------------------------------------------------------
 U7efd: 000000000000                NOP
